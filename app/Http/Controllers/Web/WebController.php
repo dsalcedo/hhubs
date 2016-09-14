@@ -11,6 +11,6 @@ class WebController extends Controller
 {
     public function index()
     {
-        return view('web.app');
+        return view('web.index');
     }
 }

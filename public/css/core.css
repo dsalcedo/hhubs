@@ -15,7 +15,6 @@ body {
 .navbar-brand:hover {
     color: #333333!important;
 }
-
 .navbar-default {
     background-color: #ffffff;
     border-bottom: 0px;
@@ -33,7 +32,9 @@ body {
 }
 .navbar-default .navbar-nav > li > a {
     color: #3e3e3e;
-    transition: .2s;
+}
+.navbar-default .navbar-nav > li.iniciar-sesion > a {
+    color: #cb1d2c;
 }
 .navbar-default .navbar-nav > li > a:hover,
 .navbar-default .navbar-nav > li > a:focus {
