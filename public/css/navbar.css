@@ -1,0 +1,97 @@
+body {
+    padding-top: 70px;
+    background-color: #f9f9f9;
+}
+
+.navbar-brand {
+    font-family: 'Noto Sans', sans-serif;
+    color: #333333;
+    font-size: 16px;
+    height: auto;
+    margin-left: -15px;
+}
+.navbar-brand:hover {
+    color: #333333!important;
+}
+.navbar-default {
+    background-color: #ffffff;
+    border-bottom: 0px;
+    box-shadow: 0 2px 3px rgba(0,0,0,.2);
+}
+.navbar-default .navbar-brand {
+    color: #3e3e3e;
+}
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #ffffff;
+}
+.navbar-default .navbar-text {
+    color: #3e3e3e;
+}
+.navbar-default .navbar-nav > li > a {
+    color: #3e3e3e;
+    font-size: 18px;
+    background-color: #eee;
+    border-left: 1px solid #d4d4d4;
+}
+.navbar-default .navbar-nav > li.iniciar-sesion > a {
+    color: #cb1d2c;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    color: #666;
+    background-color: #eee;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu {
+    background-color: #ffffff;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a {
+    color: #3e3e3e;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:hover,
+.navbar-default .navbar-nav > li > .dropdown-menu > li > a:focus {
+    color: #666;
+    background-color: #eee;
+}
+.navbar-default .navbar-nav > li > .dropdown-menu > li > .divider {
+    background-color: #eee;
+}
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:hover,
+.navbar-default .navbar-nav .open .dropdown-menu > .active > a:focus {
+    color: #666;
+    background-color: #eee;
+}
+.navbar-default .navbar-nav > .active > a,
+.navbar-default .navbar-nav > .active > a:hover,
+.navbar-default .navbar-nav > .active > a:focus {
+    color: #666;
+    background-color: #eee;
+}
+.navbar-default .navbar-nav > .open > a,
+.navbar-default .navbar-nav > .open > a:hover,
+.navbar-default .navbar-nav > .open > a:focus {
+    color: #ffffff;
+    background-color: #eee;
+}
+.navbar-default .navbar-toggle {
+    border-color: #cb1d2c;
+}
+.navbar-default .navbar-toggle:hover,
+.navbar-default .navbar-toggle:focus {
+    color: #fff;
+    background-color: #eee;
+}
+.navbar-default .navbar-toggle .icon-bar {
+    background-color: #3e3e3e;
+}
+.navbar-default .navbar-collapse,
+.navbar-default .navbar-form {
+    border-color: #3e3e3e;
+}
+.navbar-default .navbar-link {
+    color: #3e3e3e;
+}
+.navbar-default .navbar-link:hover {
+    color: #ffffff;
+}

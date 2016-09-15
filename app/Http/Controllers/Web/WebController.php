@@ -13,4 +13,14 @@ class WebController extends Controller
     {
         return view('web.index');
     }
+
+    public function curso()
+    {
+        return view('web.curso');
+    }
+
+    public function single()
+    {
+        return view('web.single');
+    }
 }

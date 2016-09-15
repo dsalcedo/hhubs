@@ -1,5 +1,6 @@
 body {
     padding-top: 70px;
+    background-color: #f9f9f9;
 }
 
 .navbar-brand {
@@ -95,10 +96,73 @@ body {
     color: #ffffff;
 }
 
+a:hover,
+a:focus {
+    text-decoration: none;
+}
+
 .hub{
     color: #cb1d2c;
 }
+.small {
+    font-size: 80%;
+    font-weight: 400;
+}
 
+/*
+* Botones y colores de botones
+*/
+.btn-round, .btn-square {
+    text-align: center;
+    line-height: 19px;
+    font-size: 16px;
+}
+.btn-round {
+    -webkit-border-radius: 3px;
+    border-radius: 100px;
+}
+.btn-square {
+    border: 2px solid #c4c4c4;
+}
+.flat-red {
+    background-color: #ff5a5f;
+    color: #ffffff;
+}
+
+/*
+* Thumbnail card
+*/
+.thumbnail.card {
+    padding: 0px;
+    box-shadow: 0 2px 3px rgba(0,0,0,.05);
+    margin-bottom: 1.25rem;
+    background-color: #fff;
+    border: 1px solid #eee;
+    border-radius: 3px;
+}
+.thumbnail.card .caption {
+    padding: 20px.625rem;
+    font-family: 'Noto Sans', sans-serif;
+}
+.thumbnail.card .caption h3 {
+    margin: 0;
+    font-family: 'Lato', sans-serif;
+}
+.card .caption > .card-title a {
+    color: #3e3e3e;
+}
+.card .caption > .card-title a:hover,
+.card .caption > .card-title a:focus {
+    color: #cb1d2c;
+}
+.card p {
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 16px;
+    font-style: normal;
+    font-weight: 400;
+    line-height: 1.5;
+    color: rgba(0,0,0,0.87);
+}
 @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
         color: #3e3e3e;
