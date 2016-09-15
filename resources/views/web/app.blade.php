@@ -15,6 +15,7 @@
     <link href="//fonts.googleapis.com/css?family=Didact+Gothic|Jockey+One|Open+Sans:400,700|Oxygen|Lato" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
 
+    <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
@@ -28,6 +29,37 @@
     <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
+    <style>
+        input[type=text], input[type=password] {
+            border-radius: 5px;
+            padding: 11px 10px;
+            height: auto;
+            outline: 0;
+            font-size: 18px;
+            color: #355368;
+            border: 1px solid #a9a9a9;
+        }
+        .modal-title {
+            color: #355368;
+            font-size: 20px;
+        }
+        .modal-content{
+            padding: 20px;
+            font-family: 'Open Sans', sans-serif;
+        }
+        .modal-content label {
+            font-weight: 400;
+        }
+        .modal-footer {
+            font-size: 14px;
+        }
+        @media (min-width: 768px) {
+            .modal-dialog {
+                width: 420px;
+                margin: 30px auto;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -70,7 +102,7 @@
                     <a href="../navbar-static-top/">Iniciar sesión</a>
                 </li>
                 <li class="active">
-                    <a href="#">Suscríbete</a>
+                    <a href="#" data-toggle="modal" data-target="#modalSuscribete">Suscríbete</a>
                 </li>
             </ul>
         </div><!--/.nav-collapse -->
@@ -78,6 +110,54 @@
 </nav>
 
 @yield('body')
+
+
+<div class="modal fade" id="modalSuscribete" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content"  style="background: #fafafa;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-center" id="myModalLabel">
+                    ¡Regístrate y comienza a aprender!
+                </h4>
+            </div>
+            <div class="modal-body" style="font-size: 16px; font-family: 'Open Sans', sans-serif;">
+
+                <form style="margin-bottom: 15px; margin-top: 15px;">
+                    <div class="form-group">
+                        <label for="exampleInputEmail1">Correo electrónico</label>
+                        <input type="text" class="form-control" id="exampleInputEmail1">
+                    </div>
+                    <div class="form-group">
+                        <label for="exampleInputPassword1">Contraseña</label>
+                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    </div>
+                    <div class="checkbox">
+                        <label style="font-size: 14px;">
+                            <input type="checkbox" checked> ¡Sé el primero en conocer los nuevos cursos y las mejores ofertas!
+                        </label>
+                    </div>
+                    <input type="submit" class="btn btn-block btn-success" value="Regístrate">
+                </form>
+
+               <!--<p class="text-center">
+                    <a href="" class="btn btn-lg btn-facebook">
+                        <i class="fa fa-facebook"></i> Regístrate con facebook
+                    </a>
+                </p>-->
+                <p class="text-center" style="font-size: 14px;">
+                    Al registrarte, aceptas nuestras <a href="#">Condiciones de uso</a> y <a href="#">Política de privacidad</a>.
+                </p>
+            </div>
+            <div class="modal-footer">
+                <p class="text-center">
+                    ¿Ya tienes una cuenta? <a href="#">Inicia sesión</a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <!-- Bootstrap core JavaScript
 ================================================== -->

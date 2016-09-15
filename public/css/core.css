@@ -124,11 +124,29 @@ a:focus {
 .btn-square {
     border: 2px solid #c4c4c4;
 }
+.btn-facebook {
+    color: #fff;
+    background-color: #3b5998;
+    border-color: rgba(0,0,0,0.2);
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 16px;
+}
 .flat-red {
     background-color: #ff5a5f;
     color: #ffffff;
 }
 
+
+i.fa-facebook {
+    border-right: 1px solid rgba(0,0,0,0.2);
+    margin-right: 5px;
+    font-size: 19px;
+}
+.btn-facebook:hover,
+.btn-facebook:focus {
+    color: #fff!important;
+    background: #5e7bb7!important;
+}
 /*
 * Thumbnail card
 */
