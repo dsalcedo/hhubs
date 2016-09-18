@@ -85,7 +85,7 @@ class RouteServiceProvider extends ServiceProvider
         Route::group([
             'middleware' => 'web',// TODO, implementar AUTH
             'namespace' => $this->namespace.'\Cursante',
-            'prefix' => 'cursante',
+            'prefix' => 'app',
         ], function ($router) {
             require base_path('routes/cursante.php');
         });

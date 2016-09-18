@@ -11,6 +11,6 @@ class CursanteController extends Controller
 {
     public function index()
     {
-        dd(1);
+        return view('app.index');
     }
 }

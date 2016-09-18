@@ -1,3 +1,3 @@
 <?php
 
-    Route::get('/', 'CursanteController@index')->name('manager.index');
+Route::get('/', 'CursanteController@index')->name('app.index');
