@@ -3,6 +3,19 @@
 @section('titulo', 'Index')
 
 @section('body')
+    <style>
+        .thumbnail .progress {
+            height: 5px;
+        }
+        .thumbnail .progress .progress-bar {
+            background: #37abf2;
+        }
+        .card-art{
+            position: absolute;
+            bottom: 15px;
+            right: 15px;
+        }
+    </style>
     <div class="container">
 
         <!-- Main component for a primary marketing message or call to action -->
@@ -26,16 +39,18 @@
                             </a>
                         </h3>
                     </div>
-                    <a href="{{route('web.curso')}}">
-                        <img src="http://learnplus.themekit.io/assets/images/vuejs.png" alt="...">
-                    </a>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <span class="label label-primary card-art">Web</span>
+                            <a href="{{route('web.curso')}}">
+                                <img src="http://learnplus.themekit.io/assets/images/vuejs.png" alt="...">
+                            </a>
+                        </div>
+                    </div>
                     <div class="caption">
                         <span class="text-muted small text-uppercase">ADVANCED</span>
                         <p>
                             Let’s start with a quick tour of Vue’s data binding features. If you are more interested in ...
-                        </p>
-                        <p>
-                            <span class="label label-primary">Web</span>
                         </p>
                     </div>
                 </div>
@@ -50,16 +65,18 @@
                             </a>
                         </h3>
                     </div>
-                    <a href="{{route('web.curso')}}">
-                        <img src="http://learnplus.themekit.io/assets/images/nodejs.png" alt="...">
-                    </a>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <span class="label label-primary card-art">Web</span>
+                            <a href="{{route('web.curso')}}">
+                                <img src="http://learnplus.themekit.io/assets/images/nodejs.png" alt="...">
+                            </a>
+                        </div>
+                    </div>
                     <div class="caption">
                         <span class="text-muted small text-uppercase">BEGINNER</span>
                         <p>
                             Developing static website with fast and advanced gulp setup by managing all parts...
-                        </p>
-                        <p>
-                            <span class="label label-primary">Web</span>
                         </p>
                     </div>
                 </div>
@@ -74,17 +91,24 @@
                             </a>
                         </h3>
                     </div>
-                    <a href="{{route('web.curso')}}">
-                        <img src="http://learnplus.themekit.io/assets/images/github.png" alt="...">
-                    </a>
+                    <div class="col-md-12">
+                        <div class="row">
+                            <span class="label label-primary card-art">Web</span>
+                            <a href="{{route('web.curso')}}">
+                                <img src="http://learnplus.themekit.io/assets/images/github.png" alt="...">
+                            </a>
+                        </div>
+                    </div>
                     <div class="caption">
                         <span class="text-muted small text-uppercase">INTERMEDIATE</span>
                         <p>
                             Learn the basics of Github and become a power Github developer.
                         </p>
-                        <p>
-                            <span class="label label-primary">Web</span>
-                        </p>
+                        <div class="progress">
+                            <div class="progress-bar" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%;">
+                                <span class="sr-only">60% Complete</span>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>

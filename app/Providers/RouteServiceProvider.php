@@ -39,7 +39,10 @@ class RouteServiceProvider extends ServiceProvider
 
         $this->mapWebRoutes();
 
-        //
+        $this->mapCursanteRoutes();
+
+        $this->mapManagerRoutes();
+
     }
 
     /**
@@ -74,6 +77,28 @@ class RouteServiceProvider extends ServiceProvider
             'prefix' => 'api',
         ], function ($router) {
             require base_path('routes/api.php');
+        });
+    }
+
+    protected function mapCursanteRoutes()
+    {
+        Route::group([
+            'middleware' => 'web',// TODO, implementar AUTH
+            'namespace' => $this->namespace.'\Cursante',
+            'prefix' => 'cursante',
+        ], function ($router) {
+            require base_path('routes/cursante.php');
+        });
+    }
+
+    protected function mapManagerRoutes()
+    {
+        Route::group([
+            'middleware' => 'web', // TODO, implementar AUTH
+            'namespace' => $this->namespace.'\Manager',
+            'prefix' => 'manager',
+        ], function ($router) {
+            require base_path('routes/manager.php');
         });
     }
 }

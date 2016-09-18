@@ -17,6 +17,7 @@
 
     <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
+    <link href="{{asset('libs/nprogress/nprogress.css')}}" rel="stylesheet">
 
     <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
     <!--<link href="../../assets/css/ie10-viewport-bug-workaround.css" rel="stylesheet">-->
@@ -50,8 +51,41 @@
         .modal-content label {
             font-weight: 400;
         }
+        .modal-body {
+            padding: 0px 15px;
+        }
         .modal-footer {
             font-size: 14px;
+        }
+        input[type=button].btn-block, input[type=reset].btn-block, input[type=submit].btn-block {
+            width: 100%;
+            padding: 11px 10px;
+            font-size: 17px;
+        }
+
+        .form-control-feedback {
+            position: absolute;
+            top: 0;
+            left: 5px;
+            z-index: 2;
+            display: block;
+            width: 34px;
+            height: 34px;
+            line-height: 34px;
+            text-align: center;
+            pointer-events: none;
+        }
+        .has-feedback {
+            margin-bottom: 0px;
+        }
+        .has-feedback .form-control {
+            padding-left: 42.5px;
+            padding-right: 15px;
+        }
+        .has-feedback label~.form-control-feedback {
+            top: 29px;
+            color: #d6d6d6;
+            font-size: 20px;
         }
         @media (min-width: 768px) {
             .modal-dialog {
@@ -75,7 +109,7 @@
                 <span class="icon-bar"></span>
             </button>
             <a class="navbar-brand" href="#">
-                Hacker<span class="hub">hub</span>
+                Hackr<span class="hub">hub</span>
             </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
@@ -98,8 +132,8 @@
             </ul>
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="../navbar/">Default</a></li>
-                <li class="iniciar-sesion">
-                    <a href="../navbar-static-top/">Iniciar sesión</a>
+                <li class="iniciar-sesion" data-toggle="modal" data-target="#modalIniciarSesion">
+                    <a href="#">Iniciar sesión</a>
                 </li>
                 <li class="active">
                     <a href="#" data-toggle="modal" data-target="#modalSuscribete">Suscríbete</a>
@@ -123,28 +157,29 @@
             </div>
             <div class="modal-body" style="font-size: 16px; font-family: 'Open Sans', sans-serif;">
 
-                <form style="margin-bottom: 15px; margin-top: 15px;">
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Correo electrónico</label>
-                        <input type="text" class="form-control" id="exampleInputEmail1">
+                <form style="margin-top: 0px; margin-bottom: 15px;">
+                    <div class="form-group has-feedback">
+                        <label class="control-label" for="nombre_completo"></label>
+                        <input type="text" name="nombre_completo" class="form-control" id="nombre_completo" placeholder="Nombre completo">
+                        <span class="glyphicon glyphicon-user form-control-feedback"></span>
                     </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Contraseña</label>
-                        <input type="password" class="form-control" id="exampleInputPassword1">
+                    <div class="form-group has-feedback">
+                        <label class="control-label" for="correo_electronico"></label>
+                        <input type="text" name="email" class="form-control" id="correo_electronico" placeholder="Correo electrónico">
+                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
+                    </div>
+                    <div class="form-group has-feedback">
+                        <label class="control-label" for="password"></label>
+                        <input type="text" name="password" class="form-control" id="password" placeholder="Contraseña">
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     </div>
                     <div class="checkbox">
                         <label style="font-size: 14px;">
-                            <input type="checkbox" checked> ¡Sé el primero en conocer los nuevos cursos y las mejores ofertas!
+                            <input type="checkbox" name="newsletter" checked> ¡Sé el primero en conocer los nuevos cursos y las mejores ofertas!
                         </label>
                     </div>
                     <input type="submit" class="btn btn-block btn-success" value="Regístrate">
                 </form>
-
-               <!--<p class="text-center">
-                    <a href="" class="btn btn-lg btn-facebook">
-                        <i class="fa fa-facebook"></i> Regístrate con facebook
-                    </a>
-                </p>-->
                 <p class="text-center" style="font-size: 14px;">
                     Al registrarte, aceptas nuestras <a href="#">Condiciones de uso</a> y <a href="#">Política de privacidad</a>.
                 </p>
@@ -159,9 +194,53 @@
 </div>
 
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
+
+<div class="modal fade" id="modalIniciarSesion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content"  style="background: #fafafa;">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                <h4 class="modal-title text-center" id="myModalLabel">
+                    ¡Inicia sesión en tu cuenta!
+                </h4>
+            </div>
+            <div class="modal-body" style="font-size: 16px; font-family: 'Open Sans', sans-serif;">
+
+                <form style="margin-bottom: 15px; margin-top: 15px;">
+                    <div class="form-group">
+                        <label for="correoElectronico">Correo electrónico</label>
+                        <input type="text" class="form-control" id="correoElectronico" autofocus>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Contraseña</label>
+                        <input type="password" class="form-control" id="password">
+                    </div>
+                    <input type="submit" class="btn btn-block btn-success" value="Iniciar sesión">
+                </form>
+
+
+                <p class="text-center" style="font-size: 14px;">
+                    o <a href="#">¿Has olvidado la contraseña?</a>
+                </p>
+            </div>
+            <div class="modal-footer">
+                <p class="text-center">
+                    <a href="#" class="btn btn-lg btn-facebook">
+                        <i class="fa fa-facebook"></i> Iniciar sesión con Facebook
+                    </a>
+                </p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="{{asset('libs/nprogress/nprogress.js')}}"></script>
+<script>
+    NProgress.start();
+    (function() {
+        NProgress.done();
+    })();
+</script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="{{asset('js/jquery-1.12.4.min.js')}}"><\/script>')</script>
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
@@ -169,5 +248,6 @@
 <!--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
 
 @yield('javascript')
+
 </body>
 </html>
