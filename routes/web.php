@@ -12,5 +12,7 @@
 */
 
 Route::get('/', 'Web\WebController@index')->name('web.index');
+Route::post('registro', 'Auth\HubController@registro')->name('web.registro');
+
 Route::get('curso', 'Web\WebController@curso')->name('web.curso');
 Route::get('curso/single', 'Web\WebController@single')->name('curso.single');

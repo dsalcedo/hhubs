@@ -83,7 +83,7 @@ class RouteServiceProvider extends ServiceProvider
     protected function mapCursanteRoutes()
     {
         Route::group([
-            'middleware' => 'web',// TODO, implementar AUTH
+            'middleware' => 'cursante',// TODO, implementar AUTH
             'namespace' => $this->namespace.'\Cursante',
             'prefix' => 'app',
         ], function ($router) {

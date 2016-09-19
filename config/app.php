@@ -169,6 +169,7 @@ return [
 
         Collective\Html\HtmlServiceProvider::class,
         Cviebrock\EloquentSluggable\ServiceProvider::class,
+        DougSisk\CountryState\CountryStateServiceProvider::class,
 
         /*
          * Application Service Providers...

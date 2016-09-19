@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers\Auth;
 
-use App\User;
+use App\Models\Usuario\Usuario;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Support\Facades\Auth;
+use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -27,7 +29,9 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $redirectTo = '/app';
+    protected $loginPath = '/';
+
 
     /**
      * Create a new controller instance.
@@ -48,9 +52,10 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
-            'email' => 'required|email|max:255|unique:users',
-            'password' => 'required|min:6|confirmed',
+            '_token' => 'required',
+            'nombre' => 'required|max:255',
+            'email' => 'required|email|max:255|unique:usuarios',
+            'password' => 'required|min:6|max:255',
         ]);
     }
 
@@ -58,14 +63,32 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return User
+     * @return Usuario
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+        $usuario = Usuario::create([
+            'nombre' => $data['nombre'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
+            'mailing' => isset($data['mailing'])
         ]);
+
+        return $usuario;
+    }
+
+    /**
+     * @param Request $request
+     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
+     */
+    public function registro(Request $request)
+    {
+        $this->validator($request->all())->validate();
+
+        $usuario = $this->create($request->all());
+
+        Auth::loginUsingId($usuario->id);
+
+        return redirect($this->redirectPath());
     }
 }
