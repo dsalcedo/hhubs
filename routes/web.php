@@ -14,3 +14,7 @@
 Route::get('/', 'Web\WebController@index')->name('web.index');
 Route::get('curso', 'Web\WebController@curso')->name('web.curso');
 Route::get('curso/single', 'Web\WebController@single')->name('curso.single');
+
+Route::group(['prefix'=>'manager','namespace'=>'Manager'],function(){
+    require __DIR__.'/manager.php';
+});
