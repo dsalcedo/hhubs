@@ -15,9 +15,6 @@
 @endsection
 
 @section('body')
-
-
-
     <div class="col-md-9">
         <form>
             <div class="form-group">
@@ -101,6 +98,8 @@
                 else { done(); }
             }
         });
+
+
 
     </script>
 @endsection
