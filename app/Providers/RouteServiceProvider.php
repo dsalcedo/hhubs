@@ -106,6 +106,7 @@ class RouteServiceProvider extends ServiceProvider
             'prefix' => 'manager',
         ], function ($router) {
             require base_path('routes/manager.php');
+            require base_path('routes/managerMedia.php');
             require base_path('routes/managerBlog.php');
         });
     }
