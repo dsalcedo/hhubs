@@ -62,7 +62,6 @@
             padding: 11px 10px;
             font-size: 17px;
         }
-
         .form-control-feedback {
             position: absolute;
             top: 0;
@@ -82,10 +81,13 @@
             padding-left: 42.5px;
             padding-right: 15px;
         }
-        .has-feedback label~.form-control-feedback {
-            top: 29px;
+        .has-feedback .form-control-feedback {
+            top: 6px;
             color: #d6d6d6;
             font-size: 20px;
+        }
+        .input-spacer {
+            margin-top: 20px;
         }
         @media (min-width: 768px) {
             .modal-dialog {
@@ -113,25 +115,10 @@
             </a>
         </div>
         <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#">Home</a></li>
-                <li><a href="#about">About</a></li>
-                <li><a href="#contact">Contact</a></li>
-                <li class="dropdown">
-                    <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Dropdown <span class="caret"></span></a>
-                    <ul class="dropdown-menu">
-                        <li><a href="#">Action</a></li>
-                        <li><a href="#">Another action</a></li>
-                        <li><a href="#">Something else here</a></li>
-                        <li role="separator" class="divider"></li>
-                        <li class="dropdown-header">Nav header</li>
-                        <li><a href="#">Separated link</a></li>
-                        <li><a href="#">One more separated link</a></li>
-                    </ul>
-                </li>
-            </ul>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="../navbar/">Default</a></li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Eventos</a></li>
+                <li><a href="#">Carreras</a></li>
                 <li class="iniciar-sesion" data-toggle="modal" data-target="#modalIniciarSesion">
                     <a href="#">Iniciar sesión</a>
                 </li>
@@ -156,31 +143,28 @@
                 </h4>
             </div>
             <div class="modal-body" style="font-size: 16px; font-family: 'Open Sans', sans-serif;">
+                {!! Form::open(['route' => 'web.registro', 'style'=>'margin-top: 0px; margin-bottom: 15px;']) !!}
 
-                <form style="margin-top: 0px; margin-bottom: 15px;">
                     <div class="form-group has-feedback">
-                        <label class="control-label" for="nombre_completo"></label>
-                        <input type="text" name="nombre_completo" class="form-control" id="nombre_completo" placeholder="Nombre completo">
+                        {!! Form::text('nombre', null, ['class' => 'form-control input-spacer', 'placeholder'=>'Nombre completo']) !!}
                         <span class="glyphicon glyphicon-user form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
-                        <label class="control-label" for="correo_electronico"></label>
-                        <input type="text" name="email" class="form-control" id="correo_electronico" placeholder="Correo electrónico">
+                        {!! Form::text('email', null, ['class' => 'form-control input-spacer', 'placeholder'=>'Correo electrónico']) !!}
                         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                     </div>
                     <div class="form-group has-feedback">
-                        <label class="control-label" for="password"></label>
-                        <input type="text" name="password" class="form-control" id="password" placeholder="Contraseña">
+                        {!! Form::password('password', ['class' => 'form-control input-spacer', 'placeholder'=>'Contraseña']) !!}
                         <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     </div>
                     <div class="checkbox">
                         <label style="font-size: 14px;">
-                            <input type="checkbox" name="newsletter" checked> ¡Sé el primero en conocer los nuevos cursos y las mejores ofertas!
+                            <input type="checkbox" name="mailing" value="1" checked> ¡Sé el primero en conocer los nuevos cursos y las mejores ofertas!
                         </label>
                     </div>
                     <input type="submit" class="btn btn-block btn-success" value="Regístrate">
-                </form>
-                <p class="text-center" style="font-size: 14px;">
+                    {!! Form::close() !!}
+                    <p class="text-center" style="font-size: 14px;">
                     Al registrarte, aceptas nuestras <a href="#">Condiciones de uso</a> y <a href="#">Política de privacidad</a>.
                 </p>
             </div>
@@ -206,21 +190,21 @@
             </div>
             <div class="modal-body" style="font-size: 16px; font-family: 'Open Sans', sans-serif;">
 
-                <form style="margin-bottom: 15px; margin-top: 15px;">
-                    <div class="form-group">
-                        <label for="correoElectronico">Correo electrónico</label>
-                        <input type="text" class="form-control" id="correoElectronico" autofocus>
+                {!! Form::open(['route' => 'web.login', 'style'=>'margin-bottom: 15px; margin-top: 15px;']) !!}
+                    <div class="form-group has-feedback">
+                        {!! Form::text('email', null, ['class' => 'form-control input-spacer', 'placeholder'=>'Correo electrónico']) !!}
+                        <span class="glyphicon glyphicon-envelope form-control-feedback"></span>
                     </div>
-                    <div class="form-group">
-                        <label for="password">Contraseña</label>
-                        <input type="password" class="form-control" id="password">
+                    <div class="form-group has-feedback" style="margin-bottom: 25px;">
+                        {!! Form::password('password', ['class' => 'form-control input-spacer', 'placeholder'=>'Contraseña']) !!}
+                        <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                     </div>
-                    <input type="submit" class="btn btn-block btn-success" value="Iniciar sesión">
-                </form>
 
+                    <input type="submit" class="btn btn-block btn-success" value="Iniciar sesión">
+                {!! Form::close() !!}
 
                 <p class="text-center" style="font-size: 14px;">
-                    o <a href="#">¿Has olvidado la contraseña?</a>
+                    <a href="#">¿Has olvidado la contraseña?</a>
                 </p>
             </div>
             <div class="modal-footer">
@@ -231,6 +215,12 @@
                 </p>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="container">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut cum et laboriosam laborum placeat, praesentium quam quisquam quo recusandae reprehenderit! Adipisci at beatae itaque nam necessitatibus nesciunt perspiciatis sunt! Aut?
     </div>
 </div>
 

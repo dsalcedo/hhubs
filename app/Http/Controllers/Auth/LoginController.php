@@ -25,7 +25,9 @@ class LoginController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/home';
+    protected $loginPath = '/'; // path to the login URL
+    protected $redirectPath = '/app'; // path to the route where you want users to be redirected once logged in
+    protected $redirectTo = '/app'; // path you're sent to once you've reset your password';
 
     /**
      * Create a new controller instance.
