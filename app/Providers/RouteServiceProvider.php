@@ -80,6 +80,13 @@ class RouteServiceProvider extends ServiceProvider
         });
     }
 
+    /**
+     * Define the "app" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
     protected function mapCursanteRoutes()
     {
         Route::group([
@@ -99,6 +106,7 @@ class RouteServiceProvider extends ServiceProvider
             'prefix' => 'manager',
         ], function ($router) {
             require base_path('routes/manager.php');
+            require base_path('routes/managerBlog.php');
         });
     }
 }

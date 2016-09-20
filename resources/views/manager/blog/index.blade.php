@@ -1,8 +1,12 @@
 @extends('manager.menu_assets.app')
 
-@section('titulo', 'Index')
+@section('titulo', 'Manager > Blog')
 
 @section('body')
+
+        <a href="{{route('blog.agregar.publicacion')}}" class="btn btn-round btn-primary pull-right">
+            Agregar publicación
+        </a>
             <h2>Left side Navigation bar (Fixed)</h2>
 
             <p>Left side Navigation</p>
