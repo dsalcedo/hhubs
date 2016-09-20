@@ -190,7 +190,7 @@
             </div>
             <div class="modal-body" style="font-size: 16px; font-family: 'Open Sans', sans-serif;">
 
-                {!! Form::open(['url' => 'foo/bar', 'style'=>'margin-bottom: 15px; margin-top: 15px;']) !!}
+                {!! Form::open(['route' => 'web.login', 'style'=>'margin-bottom: 15px; margin-top: 15px;']) !!}
                     <div class="form-group has-feedback">
                         {!! Form::text('email', null, ['class' => 'form-control input-spacer', 'placeholder'=>'Correo electrónico']) !!}
                         <span class="glyphicon glyphicon-envelope form-control-feedback"></span>

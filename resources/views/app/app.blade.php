@@ -7,6 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="../../favicon.ico">
 
     <title>@yield('titulo')</title>
@@ -240,7 +241,7 @@
                         </li>
                         <li role="separator" class="divider"></li>
                         <li>
-                            <a href="#">Salir</a>
+                            <a href="{{ route('app.salir') }}">Salir</a>
                         </li>
                     </ul>
                 </li>

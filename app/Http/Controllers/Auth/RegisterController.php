@@ -6,8 +6,6 @@ use App\Models\Usuario\Usuario;
 use Validator;
 use App\Http\Controllers\Controller;
 use Illuminate\Foundation\Auth\RegistersUsers;
-use Illuminate\Support\Facades\Auth;
-use Illuminate\Http\Request;
 
 class RegisterController extends Controller
 {
@@ -29,8 +27,10 @@ class RegisterController extends Controller
      *
      * @var string
      */
-    protected $redirectTo = '/app';
-    protected $loginPath = '/';
+    protected $loginPath = '/'; // path to the login URL
+    protected $redirectPath = '/app'; // path to the route where you want users to be redirected once logged in
+    protected $redirectTo = '/app'; // path you're sent to once you've reset your password';
+
 
 
     /**
@@ -52,10 +52,9 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            '_token' => 'required',
             'nombre' => 'required|max:255',
             'email' => 'required|email|max:255|unique:usuarios',
-            'password' => 'required|min:6|max:255',
+            'password' => 'required|min:4',
         ]);
     }
 
@@ -63,32 +62,15 @@ class RegisterController extends Controller
      * Create a new user instance after a valid registration.
      *
      * @param  array  $data
-     * @return Usuario
+     * @return User
      */
     protected function create(array $data)
     {
-        $usuario = Usuario::create([
+        return Usuario::create([
             'nombre' => $data['nombre'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
             'mailing' => isset($data['mailing'])
         ]);
-
-        return $usuario;
-    }
-
-    /**
-     * @param Request $request
-     * @return \Illuminate\Http\RedirectResponse|\Illuminate\Routing\Redirector
-     */
-    public function registro(Request $request)
-    {
-        $this->validator($request->all())->validate();
-
-        $usuario = $this->create($request->all());
-
-        Auth::loginUsingId($usuario->id);
-
-        return redirect($this->redirectPath());
     }
 }
