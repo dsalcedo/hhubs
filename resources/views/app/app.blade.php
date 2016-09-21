@@ -7,6 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}">
     <link rel="icon" href="../../favicon.ico">
 
     <title>@yield('titulo')</title>
@@ -214,21 +215,9 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li>
-                    <a href="#">
-                        Eventos
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Blog
-                    </a>
-                </li>
-                <li>
-                    <a href="#">
-                        Carreras
-                    </a>
-                </li>
+                <li><a href="#">Blog</a></li>
+                <li><a href="#">Eventos</a></li>
+                <li><a href="#">Carreras</a></li>
                 <li>
                     <a href="{{ route('app.misCursos') }}">
                         Mis cursos
@@ -241,7 +230,7 @@
                 </li>
                 <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                        Daniel Salcedo <span class="caret"></span>
+                        {{$usuario->nombre}} <span class="caret"></span>
                     </a>
                     <ul class="dropdown-menu">
                         <li>
@@ -252,7 +241,7 @@
                         </li>
                         <li role="separator" class="divider"></li>
                         <li>
-                            <a href="#">Salir</a>
+                            <a href="{{ route('app.salir') }}">Salir</a>
                         </li>
                     </ul>
                 </li>
@@ -348,6 +337,12 @@
                 </p>
             </div>
         </div>
+    </div>
+</div>
+
+<div class="footer">
+    <div class="container">
+        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aut cum et laboriosam laborum placeat, praesentium quam quisquam quo recusandae reprehenderit! Adipisci at beatae itaque nam necessitatibus nesciunt perspiciatis sunt! Aut?
     </div>
 </div>
 

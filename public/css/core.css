@@ -131,9 +131,16 @@ a:focus {
 .btn-facebook {
     color: #fff;
     background-color: #3b5998;
-    border-color: rgba(0,0,0,0.2);
     font-family: 'Noto Sans', sans-serif;
     font-size: 16px;
+    text-align: left;
+}
+.btn-twitter {
+    color: #fff;
+    background-color: #00aced;
+    font-family: 'Noto Sans', sans-serif;
+    font-size: 16px;
+    text-align: left;
 }
 .flat-red {
     background-color: #ff5a5f;
@@ -141,15 +148,22 @@ a:focus {
 }
 
 
-i.fa-facebook {
-    border-right: 1px solid rgba(0,0,0,0.2);
-    margin-right: 5px;
+i.fa-facebook,
+i.fa-twitter {
+    padding-right: 5px;
     font-size: 19px;
+    width: 20px;
 }
 .btn-facebook:hover,
 .btn-facebook:focus {
     color: #fff!important;
     background: #5e7bb7!important;
+}
+
+.btn-twitter:hover,
+.btn-twitter:focus {
+    color: #fff!important;
+    background: #1dcaff!important;
 }
 /*
 * Thumbnail card
@@ -218,6 +232,25 @@ i.fa-facebook {
     display: block;
     position: relative;
     height: 15px;
+}
+
+.footer{
+    position: relative;
+    min-height: 100px;
+    width: 100%;
+    display: block;
+    bottom: 0;
+    background: #ffffff;
+    margin-top: 50px;
+}
+.footer .container {
+    padding-top: 30px;
+}
+
+.modal-header .close {
+    margin-top: -30px;
+    margin-right: -25px;
+    font-size: 35px;
 }
 @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {

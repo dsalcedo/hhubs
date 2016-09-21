@@ -4,8 +4,8 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "3db8573b2a554d7c3f60e3f07dd56b1e",
-    "content-hash": "579591979acd2ce2c1d9d9d02ecdacb3",
+    "hash": "f4a0a92f9b1f4943b9d0e776e04026de",
+    "content-hash": "d35b7baae73af5bc4de552a3cd3e7706",
     "packages": [
         {
             "name": "classpreloader/classpreloader",
@@ -127,16 +127,16 @@
         },
         {
             "name": "conekta/conekta-php",
-            "version": "dev-master",
+            "version": "v2.0.5",
             "source": {
                 "type": "git",
                 "url": "https://github.com/conekta/conekta-php.git",
-                "reference": "674a979393bbf59c09f7fc33da081f0a877b51fb"
+                "reference": "4b517cd50bc8633e2c34619e01f647c0deb9328c"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/conekta/conekta-php/zipball/674a979393bbf59c09f7fc33da081f0a877b51fb",
-                "reference": "674a979393bbf59c09f7fc33da081f0a877b51fb",
+                "url": "https://api.github.com/repos/conekta/conekta-php/zipball/4b517cd50bc8633e2c34619e01f647c0deb9328c",
+                "reference": "4b517cd50bc8633e2c34619e01f647c0deb9328c",
                 "shasum": ""
             },
             "require": {
@@ -171,7 +171,7 @@
                 "conekta",
                 "payment processing"
             ],
-            "time": "2016-09-05 16:33:58"
+            "time": "2016-07-05 18:13:05"
         },
         {
             "name": "cviebrock/eloquent-sluggable",
@@ -323,6 +323,61 @@
                 "string"
             ],
             "time": "2015-11-06 14:35:42"
+        },
+        {
+            "name": "dougsisk/laravel-country-state",
+            "version": "1.2",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/DougSisk/laravel-country-state.git",
+                "reference": "90b1caccfe2b90b14f0d331db2bfb02e0e7b92fb"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/DougSisk/laravel-country-state/zipball/90b1caccfe2b90b14f0d331db2bfb02e0e7b92fb",
+                "reference": "90b1caccfe2b90b14f0d331db2bfb02e0e7b92fb",
+                "shasum": ""
+            },
+            "require": {
+                "illuminate/support": "~5.0",
+                "phine/country": "~1.0",
+                "php": ">=5.4.0"
+            },
+            "require-dev": {
+                "orchestra/testbench": "~3.0",
+                "phpunit/phpunit": "~4.0|~5.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.1-dev"
+                }
+            },
+            "autoload": {
+                "psr-4": {
+                    "DougSisk\\CountryState\\": "src/"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Doug Sisk",
+                    "homepage": "http://dougsisk.com"
+                }
+            ],
+            "description": "Country & state helper for Laravel 5.",
+            "homepage": "https://github.com/DougSisk/laravel-country-state",
+            "keywords": [
+                "countries",
+                "country",
+                "laravel",
+                "state",
+                "states"
+            ],
+            "time": "2016-07-28 17:04:36"
         },
         {
             "name": "guzzlehttp/guzzle",
@@ -1288,6 +1343,107 @@
                 "random"
             ],
             "time": "2016-04-03 06:00:07"
+        },
+        {
+            "name": "phine/country",
+            "version": "1.1.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kherge-abandoned/lib-country.git",
+                "reference": "17278e939832013a3c7981b71f63ceb7480e79a1"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kherge-abandoned/lib-country/zipball/17278e939832013a3c7981b71f63ceb7480e79a1",
+                "reference": "17278e939832013a3c7981b71f63ceb7480e79a1",
+                "shasum": ""
+            },
+            "require": {
+                "phine/exception": "~1.0",
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "league/phpunit-coverage-listener": "~1.0",
+                "phine/test": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Phine\\Country": "src/lib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kevin Herrera",
+                    "email": "kevin@herrera.io",
+                    "homepage": "http://kevin.herrera.io"
+                }
+            ],
+            "description": "A PHP library for country and subdivision data.",
+            "homepage": "https://github.com/phine/lib-country",
+            "keywords": [
+                "countries",
+                "country"
+            ],
+            "time": "2015-04-21 03:50:08"
+        },
+        {
+            "name": "phine/exception",
+            "version": "1.0.0",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/kherge-abandoned/lib-exception.git",
+                "reference": "150c6b6090b2ebc53c60e87cb20c7f1287b7b68a"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/kherge-abandoned/lib-exception/zipball/150c6b6090b2ebc53c60e87cb20c7f1287b7b68a",
+                "reference": "150c6b6090b2ebc53c60e87cb20c7f1287b7b68a",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=5.3.3"
+            },
+            "require-dev": {
+                "league/phpunit-coverage-listener": "~1.0"
+            },
+            "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.0-dev"
+                }
+            },
+            "autoload": {
+                "psr-0": {
+                    "Phine\\Exception": "src/lib"
+                }
+            },
+            "notification-url": "https://packagist.org/downloads/",
+            "license": [
+                "MIT"
+            ],
+            "authors": [
+                {
+                    "name": "Kevin Herrera",
+                    "email": "kevin@herrera.io",
+                    "homepage": "http://kevin.herrera.io"
+                }
+            ],
+            "description": "A PHP library for improving the use of exceptions.",
+            "homepage": "https://github.com/phine/lib-exception",
+            "keywords": [
+                "exception"
+            ],
+            "time": "2013-08-27 17:43:25"
         },
         {
             "name": "psr/http-message",
@@ -3980,9 +4136,7 @@
     ],
     "aliases": [],
     "minimum-stability": "stable",
-    "stability-flags": {
-        "conekta/conekta-php": 20
-    },
+    "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {

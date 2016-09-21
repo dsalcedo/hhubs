@@ -80,11 +80,18 @@ class RouteServiceProvider extends ServiceProvider
         });
     }
 
+    /**
+     * Define the "app" routes for the application.
+     *
+     * These routes are typically stateless.
+     *
+     * @return void
+     */
     protected function mapCursanteRoutes()
     {
         Route::group([
-            'middleware' => 'web',// TODO, implementar AUTH
-            'namespace' => $this->namespace.'\Cursante',
+            'middleware' => 'web',
+            'namespace' => $this->namespace,
             'prefix' => 'app',
         ], function ($router) {
             require base_path('routes/cursante.php');
@@ -99,6 +106,8 @@ class RouteServiceProvider extends ServiceProvider
             'prefix' => 'manager',
         ], function ($router) {
             require base_path('routes/manager.php');
+            require base_path('routes/managerMedia.php');
+            require base_path('routes/managerBlog.php');
         });
     }
 }
