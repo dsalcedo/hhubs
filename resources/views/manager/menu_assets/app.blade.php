@@ -32,6 +32,21 @@
     <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
     <style>
+        .menu-hackr {
+            background-color: #222 !important;
+            padding: 15px 15px 15px 15px;
+        }
+        a.menu {
+            color: #828282 !important;
+            text-decoration: none;
+            font-weight: bold !important;
+        }
+        a.menu:hover {
+            color: #cb1d2c !important;
+            text-decoration: none;
+            font-weight: bold !important;
+        }
+
         input[type=text], input[type=password] {
             border-radius: 5px;
             padding: 11px 10px;
@@ -88,11 +103,18 @@
             color: #d6d6d6;
             font-size: 20px;
         }
+        .row-navHHub{
+            padding-top: 15px;padding-bottom: 15px;
+        }
         @media (min-width: 768px) {
             .modal-dialog {
                 width: 420px;
                 margin: 30px auto;
             }
+        }
+
+        .navbar-nav{
+            padding-left: 15px !important;
         }
 
 
@@ -189,31 +211,61 @@
 <div class="container-fluid">
     <div class="row">
         <div class="navbar navbar-inverse navbar-fixed-left">
-            <ul class="nav navbar-nav">
-                <li> <a href="#"><span class="fa fa-home" aria-hidden="true"></span> Inicio</a></li>
-                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-book"></span> Cursos <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Sub Menu1</a></li>
-                        <li><a href="#">Sub Menu2</a></li>
-                        <li><a href="#">Sub Menu3</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Sub Menu4</a></li>
-                        <li><a href="#">Sub Menu5</a></li>
-                    </ul>
-                </li>
-                <li><a href="{{ route('manager.blog.index') }}"><span class="fa fa-th-large"></span>Blog</a></li>
-                <li><a href="#"><span class="fa fa-suitcase"></span>Profesores</a></li>
-                <li><a href="#"><span class="fa fa-users"></span>Almnos</a></li>
-                <li><a href="#"><span class="fa fa-money"></span>Pagos</a></li>
-                <li class="dropdown"><a href="#" class="dropdown-toggle" data-toggle="dropdown"><span class="fa fa-cogs"></span>Perfil <span class="caret"></span></a>
-                    <ul class="dropdown-menu" role="menu">
-                        <li><a href="#">Mi cuenta</a></li>
-                        <li><a href="#">Opciones</a></li>
-                        <li class="divider"></li>
-                        <li><a href="#">Cerrar sesión</a></li>
-                    </ul>
-                </li>
-            </ul>
+            <div class="nav nav-pills nav-stacked panel-group" id="accordion" >
+                <div class="panel menu-hackr">
+                    <a class="menu" href="#" >
+                        <span class="fa fa-home"></span> Home
+                    </a>
+                </div>
+                <div class="panel menu-hackr">
+                    <div role="tab" id="headingOne">
+                        <a class="menu" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                            <span class="fa fa-book"></span> Cursos <span class="caret"></span>
+                        </a>
+                    </div>
+                    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                        <div class="panel-body">
+                            <ul class="navbar-nav nav-stacked">
+                                <li class="nav"><a href="#">Sub Menu1</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <div class="panel menu-hackr">
+                    <a class="menu" href="{{ route('manager.blog.index') }}" >
+                        <span class="fa fa-th-large"></span> Blog
+                    </a>
+                </div>
+                <div class="panel menu-hackr">
+                    <a class="menu" href="#" >
+                        <span class="fa fa-briefcase"></span> Profesores
+                    </a>
+                </div>
+                <div class="panel menu-hackr">
+                    <a class="menu" href="#" >
+                        <span class="fa fa-users"></span> Alumnos
+                    </a>
+                </div>
+                <div class="panel menu-hackr">
+                    <a class="menu" href="#" >
+                        <span class="fa fa-money"></span> Pagos
+                    </a>
+                </div>
+                <div class="panel menu-hackr">
+                    <div role="tab" id="headingTwo">
+                        <a class="menu" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+                            <span class="fa fa-cogs"></span> Perfil <span class="caret"></span>
+                        </a>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                        <div class="panel-body">
+                            <ul class="navbar-nav nav-stacked">
+                                <li class="nav"><a href="#">Sub Menu1</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="col-md-10 col-md-offset-2">
