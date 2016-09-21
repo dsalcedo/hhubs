@@ -20,4 +20,12 @@ class CursanteController extends Controller
         $args = compact('usuario');
         return view('app.index', $args);
     }
+
+    public function logout()
+    {
+        \Auth::logout();
+
+        return redirect()->route('web.index');
+
+    }
 }

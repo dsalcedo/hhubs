@@ -7,6 +7,7 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
+    <meta name="_csrf" content="{{ csrf_token() }}">
     <link rel="icon" href="../../favicon.ico">
 
     <title>@yield('titulo')</title>
@@ -245,6 +246,13 @@
 <!--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
 
 <script>
+
+    $.ajaxSetup({
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="_csrf"]').attr('content')
+        }
+    });
+
     $(function() {
         $('#toolbar').stop().animate({'margin-right':'-105px'},1000);
 
