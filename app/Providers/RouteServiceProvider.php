@@ -102,7 +102,7 @@ class RouteServiceProvider extends ServiceProvider
     {
         Route::group([
             'middleware' => 'web', // TODO, implementar AUTH
-            'namespace' => $this->namespace.'\Manager',
+            'namespace' => $this->namespace,
             'prefix' => 'manager',
         ], function ($router) {
             require base_path('routes/manager.php');
