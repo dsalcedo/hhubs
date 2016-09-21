@@ -6,11 +6,14 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\Blog\Posts;
 
 class BlogController extends Controller
 {
     public function index()
     {
-        return view('manager.blog.index');
+        $posts = Posts::orderBy('id','DESC')->paginate(1);
+        $args  = compact('posts');
+        return view('manager.blog.index', $args);
     }
 }

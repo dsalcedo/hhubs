@@ -30,7 +30,20 @@ class PublicacionController extends Controller
             'estado'    => 'required'
         ]);
 
-        //$usuario = $this->req->user();
-        return response()->json( $this->req->all());
+        $usuario = $this->req->user();
+
+        $post = new Posts([
+            'usuario_id' => $usuario->id,
+            'titulo'     => $this->req->get('titulo'),
+            'contenido'  => $this->req->get('contenido'),
+            'destacado'  => (!is_null($this->req->get('destacado'))) ? true : false,
+            'cover'      => $this->req->get('cover'),
+            'estado'     => $this->req->get('estado'),
+        ]);
+
+        $post->save();
+
+
+        return redirect()->route('manager.blog.index');
     }
 }
