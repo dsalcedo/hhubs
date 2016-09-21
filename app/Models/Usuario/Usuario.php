@@ -26,4 +26,32 @@ class Usuario extends Authenticatable
     protected $hidden = [
         'password', 'remember_token',
     ];
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsToMany
+     */
+    public function roles()
+    {
+        return $this->belongsToMany('App\Models\Catalogo\Roles', 'usuario_roles', 'usuario_id', 'rol_id');
+    }
+    /**
+     * @param $role
+     * @return bool
+     */
+    public function hasRole($role)
+    {
+        $rolesUsuario = $this->roles()->pluck('clave')->toArray();
+        $hasRol = false;
+        if(!is_array($role)){
+            $hasRol = in_array($role, $rolesUsuario);
+        }else{
+            foreach ($role as $rol){
+                if(in_array($rol, $rolesUsuario)){
+                    $hasRol = true;
+                    break;
+                }
+            }
+        }
+        return $hasRol;
+    }
 }

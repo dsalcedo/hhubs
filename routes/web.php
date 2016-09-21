@@ -14,7 +14,6 @@
 Route::get('/', 'Web\WebController@index')->name('web.index');
 Route::post('acceso', 'Auth\LoginController@login')->name('web.login');
 Route::post('registro', 'Auth\RegisterController@register')->name('web.registro');
-Route::get('logout', 'Auth\LoginController@logout')->name('app.salir');
 
 Route::get('curso', 'Web\WebController@curso')->name('web.curso');
 Route::get('curso/single', 'Web\WebController@single')->name('curso.single');

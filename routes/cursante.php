@@ -5,6 +5,8 @@ Route::group([
     'namespace'  => 'Cursante'
 ], function ($router) {
     Route::get('/', 'CursanteController@index')->name('app.index');
+    Route::get('logout', 'CursanteController@logout')->name('app.salir');
+
     Route::get('mis-cursos', 'CursanteController@index')->name('app.misCursos');
     Route::get('mis-certificaciones', 'CursanteController@index')->name('app.misCertificaciones');
 

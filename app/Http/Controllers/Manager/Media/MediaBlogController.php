@@ -15,6 +15,13 @@ class MediaBlogController extends Controller
         $this->req = $request;
     }
 
+    public function test()
+    {
+        $archivo = $this->req->hasFile('archivo');
+
+        return response()->json([$archivo, $this->req->file('archivo')]);
+    }
+
     public function upload()
     {
 

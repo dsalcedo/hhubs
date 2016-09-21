@@ -11,6 +11,12 @@
             border-radius: 5px;
             background: white;
         }
+        .preview-thumbnail {
+            background: #e0e0e0;
+            width: 100%;
+            height: 200px;
+            margin-top: 15px;
+        }
     </style>
 @endsection
 
@@ -18,29 +24,27 @@
     {!! Form::open(['route'=>'blog.create.publicacion']) !!}
     <div class="col-md-9" style="margin-bottom: 30px;">
         <div class="form-group">
-                {!! Form::text('titulo', null, ['class'=>'form-control', 'placeholder'=>'Escribe un título', 'maxlength'=>255,'autofocus']) !!}
-            </div>
-            <div class="form-group">
-                <textarea id="summernote" name="post">Hello Summernote</textarea>
-            </div>
-
+            {!! Form::text('titulo', null, ['class'=>'form-control', 'placeholder'=>'Escribe un título', 'maxlength'=>255,'autofocus']) !!}
+        </div>
+        <div class="form-group">
+            {!! Form::textarea('contenido', null, ['id'=>'summernote']) !!}
+        </div>
     </div>
     <div class="col-md-3">
         <div class="col-md-12" style="margin-bottom: 30px;">
             <div class="row">
-                <span class="btn btn-default"  data-toggle="modal" data-target="#myModal">Cargar imagen destacada</span>
+                <span class="btn btn-default" data-toggle="modal" data-target="#myModal">Cargar imagen destacada</span>
+                <div class="preview-thumbnail"></div>
+                {!! Form::hidden('cover', null) !!}
             </div>
         </div>
         <div class="form-group">
             <label for="titulo">Estado de la publicación</label>
-            <select class="form-control">
-                <option value="guardado">Guardado</option>
-                <option value="publicadi">Publicado</option>
-            </select>
+            {!! Form::select('estado', ['draft' => 'Draft', 'publicado' => 'Publicado'], null, ['class'=>'form-control']) !!}
         </div>
         <div class="checkbox">
             <label>
-                <input type="checkbox" name="destacado" value="1"> Marcar como destacado
+                {!! Form::checkbox('destacado', '1') !!} Marcar como destacado
             </label>
         </div>
         <div class="col-md-12">
@@ -68,7 +72,6 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
-                    <button type="button" class="btn btn-primary">Terminar</button>
                 </div>
             </div>
         </div>
@@ -82,7 +85,8 @@
     <script>
         $(document).ready(function() {
             $('#summernote').summernote({
-                lang: 'es-ES', // default: 'en-US'
+                dialogsInBody: true,
+                lang: 'es-ES',
                 height: 300,
                 minHeight: 300,
                 maxHeight: null,
@@ -105,37 +109,70 @@
                             return item.indexOf(keyword) === 0;
                         }));
                     }
-                }
-                /*callbacks: {
-                    onImageUpload: function(files) {
-                        // Evitamos que se puedan pegar imágenes.
-                        //null;
+                },
+                callbacks: {
+                    onImageUpload: function(files, editor, welEditable) {
+
+                        var formData = new FormData();
+                            formData.append('archivo', files[0]);
+
+                        $.ajax({
+                            type:'POST',
+                            url: '{{route('media.upload.blog')}}',
+                            data:formData,
+                            cache:false,
+                            contentType: false,
+                            processData: false,
+                            success:function(url){
+                                var image = '{{ asset('/media/blog/') }}/'+url;
+                                $('#summernote').summernote('editor.insertImage', image);
+                            },
+                            error: function(err){
+                                console.log(err);
+                            }
+                        });
+
+                        // upload image to server and create imgNode...
+                        //$summernote.summernote('insertNode', imgNode);
                     }
-                }*/
-            });
-        });
-
-        Dropzone.autoDiscover = false;
-
-
-        $("#mediaUpload").dropzone({
-            paramName: "archivo", // The name that will be used to transfer the file
-            maxFilesize: 1, // MB
-            addRemoveLinks: true,
-            maxFiles: 1,
-            dictDefaultMessage: "Subir imagen destacada",
-            removedfile: function(file) {
-                var _ref;
-                return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
-            },
-            accept: function(file, done) {
-                console.log(file)
-                if (file.name == "justinbieber.jpg") {
-                    done("Naha, you don't.");
                 }
-                else { done(); }
-            }
+            });
+
+
+            Dropzone.autoDiscover = false;
+
+            $("#mediaUpload").dropzone({
+                paramName: "archivo", // The name that will be used to transfer the file
+                maxFilesize: 1, // MB
+                addRemoveLinks: true,
+                maxFiles: 1,
+                dictDefaultMessage: "Subir imagen destacada",
+                init: function() {
+                    this.on("complete", function(file) {
+                        var url ='{{asset('media/blog')}}/' + JSON.parse(file.xhr.response);
+                        $('.preview-thumbnail').empty();
+                        $('input[name=cover]').val(url);
+                        $('<img />',{ id: 'image-preview', src: url, class: 'img-responsive' }).appendTo($('.preview-thumbnail'));
+                        $('#myModal').modal('hide');
+                    });
+                    this.on("removedfile", function () {
+                        $('.preview-thumbnail').empty();
+                        $('input[name=cover]').val('');
+                    });
+                },
+                removedfile: function(file) {
+                    var _ref;
+                    return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
+                }
+            });
+
+
         });
+
+
+
+
+
 
 
 
