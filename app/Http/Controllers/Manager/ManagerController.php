@@ -13,4 +13,11 @@ class ManagerController extends Controller
     {
         return view('manager.index');
     }
+
+    public function logout()
+    {
+        \Auth::logout();
+
+        return redirect()->route('web.index');
+    }
 }

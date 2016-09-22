@@ -43,5 +43,25 @@ class EventLogin
 
         return redirect()->route($redirectPath);
 
+
+        //dd($redirectPath);
+
+        //return redirect()->route($redirectPath);
+
+    }
+
+    public function onUserLogin($event)
+    {
+        $usuario = $event->user;
+
+        if($usuario->hasRole('admin')){
+            $redirectPath = 'manager.index';
+        }elseif ($usuario->hasRole('instructor')){
+            $redirectPath = 'web.index';
+        }else{
+            $redirectPath = 'app.index';
+        }
+
+        return redirect()->route($redirectPath);
     }
 }

@@ -7,6 +7,7 @@ Route::group([
     'namespace'  => 'Manager'
 ], function ($router) {
     Route::get('/', 'ManagerController@index')->name('manager.index');
+    Route::get('logout', 'ManagerController@logout')->name('manager.salir');
 });
 
 
