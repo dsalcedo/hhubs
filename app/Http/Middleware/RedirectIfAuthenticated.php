@@ -18,7 +18,17 @@ class RedirectIfAuthenticated
     public function handle($request, Closure $next, $guard = null)
     {
         if (Auth::guard($guard)->check()) {
-            return redirect('/app');
+            $usuario = $request->user();
+            if($usuario->hasRole('admin')){
+                $redirectPath = 'manager.index';
+            }elseif($usuario->hasRole('instructor')){
+                $redirectPath = 'web.index';
+            }else{
+                $redirectPath = 'app.index';
+            }
+
+            return redirect()->route($redirectPath);
+
         }
 
         return $next($request);

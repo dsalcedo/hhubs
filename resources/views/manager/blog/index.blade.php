@@ -4,37 +4,39 @@
 
 @section('body')
 
-        <a href="{{route('blog.agregar.publicacion')}}" class="btn btn-round btn-primary pull-right">
-            Agregar publicación
-        </a>
-
-
-        <div class="col-md-12" style="background: #fff; padding: 10px;">
-            <table class="table table-bordered">
-                <thead>
-                    <tr>
-                        <th>ID</th>
-                        <th>Titulo</th>
-                        <th>Estado</th>
-                        <th>Creación</th>
-                    </tr>
-                </thead>
-                <tbody>
-                    @foreach ($posts as $post)
-                        <tr>
-                            <td>{{ $post->id }}</td>
-                            <td>{{ $post->titulo }}</td>
-                            <td>{{ $post->estado }}</td>
-                            <td>{{ $post->created_at }}</td>
-                        </tr>
-                    @endforeach
-                </tbody>
-            </table>
+    <div class="col-md-12">
+        <div class="row text-right">
+            <a href="{{route('blog.agregar.publicacion')}}" class="btn btn-round btn-primary" style="margin-bottom: 25px;">
+                Agregar publicación
+            </a>
         </div>
+    </div>
 
-        <div class="col-md-12">
-            {{ $posts->links() }}
-        </div>
+    <div class="col-md-12" style="background: #fff; padding: 10px; border-radius: 3px;">
+        <table class="table table-bordered">
+            <thead>
+            <tr>
+                <th>ID</th>
+                <th>Titulo</th>
+                <th>Estado</th>
+                <th>Creación</th>
+            </tr>
+            </thead>
+            <tbody>
+            @foreach ($posts as $post)
+                <tr>
+                    <td>{{ $post->id }}</td>
+                    <td><a href="">{{ $post->titulo }}</a></td>
+                    <td>{{ $post->estado }}</td>
+                    <td>{{ $post->created_at }}</td>
+                </tr>
+            @endforeach
+            </tbody>
+        </table>
+    </div>
 
+    <div class="col-md-12">
+        {{ $posts->links() }}
+    </div>
 
 @endsection

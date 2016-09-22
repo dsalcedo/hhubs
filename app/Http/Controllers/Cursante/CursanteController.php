@@ -26,6 +26,5 @@ class CursanteController extends Controller
         \Auth::logout();
 
         return redirect()->route('web.index');
-
     }
 }

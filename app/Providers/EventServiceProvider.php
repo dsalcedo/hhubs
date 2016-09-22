@@ -13,11 +13,16 @@ class EventServiceProvider extends ServiceProvider
      * @var array
      */
 
-   protected $listen = [
+    protected $listen = [
+        'Illuminate\Auth\Events\Login' => ['App\Listeners\EventLogin@onUserLogin'],
+        'Illuminate\Auth\Events\Logout' => ['App\Listeners\EventLogout']
+    ];
+
+   /*protected $listen = [
        'Illuminate\Auth\Events\Login' => [
            'App\Listeners\EventLogin@loggedIn',
        ],
-    ];
+    ];*/
 
     /**
      * Register any events for your application.
@@ -28,6 +33,5 @@ class EventServiceProvider extends ServiceProvider
     {
         parent::boot();
 
-        //
     }
 }

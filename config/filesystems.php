@@ -55,6 +55,10 @@ return [
             'driver' => 'local',
             'root'   => public_path() . '/media/blog',
         ],
+        'curso' => [
+            'driver' => 'local',
+            'root'   => public_path() . '/media/curso',
+        ],
         'public' => [
             'driver' => 'local',
             'root' => storage_path('app/public'),
