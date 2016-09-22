@@ -232,7 +232,7 @@
                     </div>
                 </div>
                 <div class="panel menu-hackr">
-                    <a href="{{ route('manager.blog.index') }}" id="link-blog" class="menu" data-toggle="collapse" href="#collapseExample">
+                    <a href="{{ route('manager.blog.index') }}" id="link-blog" class="menu">
                         <span class="fa fa-th-large"></span> Blog
                     </a>
                 </div>

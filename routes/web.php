@@ -17,3 +17,8 @@ Route::post('registro', 'Auth\RegisterController@register')->name('web.registro'
 
 Route::get('curso', 'Web\WebController@curso')->name('web.curso');
 Route::get('curso/single', 'Web\WebController@single')->name('curso.single');
+
+Route::group(['prefix'=>'blog'], function (){
+    Route::get('/', 'Web\BlogController@index')->name('web.blog');
+    Route::get('/post/{postSlug}', 'Web\BlogController@singlePost')->name('web.post');
+});

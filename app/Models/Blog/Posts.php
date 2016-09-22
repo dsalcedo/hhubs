@@ -49,7 +49,7 @@ class Posts extends Model
 
     public function autor()
     {
-        return $this->belongsTo(\App\Models\Usuario\Usuario::class);
+        return $this->hasOne(\App\Models\Usuario\Usuario::class,'id','usuario_id');
     }
 
 

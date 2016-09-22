@@ -215,7 +215,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Blog</a></li>
+                <li id="link-blog"><a href="{{route('web.blog')}}">Blog</a></li>
                 <li><a href="#">Eventos</a></li>
                 <li><a href="#">Carreras</a></li>
                 <li>

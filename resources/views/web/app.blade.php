@@ -116,7 +116,7 @@
         </div>
         <div id="navbar" class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="#">Blog</a></li>
+                <li id="link-blog"><a href="{{route('web.blog')}}">Blog</a></li>
                 <li><a href="#">Eventos</a></li>
                 <li><a href="#">Carreras</a></li>
                 <li class="iniciar-sesion" data-toggle="modal" data-target="#modalIniciarSesion">
@@ -227,9 +227,6 @@
 <script src="{{asset('libs/nprogress/nprogress.js')}}"></script>
 <script>
     NProgress.start();
-    (function() {
-        NProgress.done();
-    })();
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="{{asset('js/jquery-1.12.4.min.js')}}"><\/script>')</script>
@@ -239,5 +236,10 @@
 
 @yield('javascript')
 
+<script>
+    (function() {
+        NProgress.done();
+    })();
+</script>
 </body>
 </html>
