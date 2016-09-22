@@ -5,10 +5,21 @@
 @section('body')
 
     <div class="col-md-12">
-        <div class="row text-right">
-            <a href="{{route('blog.agregar.publicacion')}}" class="btn btn-round btn-primary" style="margin-bottom: 25px;">
-                Agregar publicación
-            </a>
+        <div class="row">
+            <div class="col-md-6">
+                <div class="row text-left">
+                    <a href="{{route('blog.agregar.publicacion')}}" class="btn btn-round btn-default" style="margin-bottom: 25px;">
+                        Agregar categorias
+                    </a>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="row text-right">
+                    <a href="{{route('blog.agregar.publicacion')}}" class="btn btn-round btn-primary" style="margin-bottom: 25px;">
+                        Agregar publicación
+                    </a>
+                </div>
+            </div>
         </div>
     </div>
 
@@ -25,8 +36,10 @@
             <tbody>
             @foreach ($posts as $post)
                 <tr>
-                    <td>{{ $post->id }}</td>
-                    <td><a href="">{{ $post->titulo }}</a></td>
+                    <td>
+                        {{$post->id}}
+                    </td>
+                    <td><a href="{{ route('blog.editar.publicacion',$post->slug) }}">{{ $post->titulo }}</a></td>
                     <td>{{ $post->estado }}</td>
                     <td>{{ $post->created_at }}</td>
                 </tr>

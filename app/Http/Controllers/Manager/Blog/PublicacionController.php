@@ -46,4 +46,31 @@ class PublicacionController extends Controller
 
         return redirect()->route('manager.blog.index');
     }
+
+    public function editarPublicacion($post)
+    {
+        return view('manager.blog.editarPublicacion', compact('post'));
+    }
+
+    public function updatePublicacion($post)
+    {
+        $usuario = $this->req->user();
+
+        Validator::make($this->req->all(), [
+            'titulo'    => 'required|max:255',
+            'contenido' => 'required',
+            'cover'     => 'required',
+            'estado'    => 'required'
+        ]);
+
+        $post->usuario_id = $usuario->id;
+        $post->titulo    = $this->req->get('titulo');
+        $post->contenido = $this->req->get('contenido');
+        $post->destacado = (!is_null($this->req->get('destacado'))) ? true : false;
+        $post->cover     = $this->req->get('cover');
+        $post->estado    = $this->req->get('estado');
+        $post->save();
+
+        return redirect()->route('manager.blog.index');
+    }
 }
