@@ -17,6 +17,13 @@
             height: 200px;
             margin-top: 15px;
         }
+        textarea,
+        .note-editor.note-frame .note-editing-area .note-editable {
+            color: #515151;
+            font-family: 'Crimson Text', serif;
+            font-size: 22px;
+            line-height: 160%;
+        }
     </style>
 @endsection
 
@@ -29,6 +36,7 @@
         <div class="form-group">
             {!! Form::textarea('contenido', null, ['id'=>'summernote']) !!}
         </div>
+        <a href="{{route('web.post', $post->slug)}}" class="btn btn-default" target="_blank">Ver publicación</a>
     </div>
     <div class="col-md-3">
         <div class="col-md-12" style="margin-bottom: 30px;">
@@ -52,7 +60,7 @@
         <div class="col-md-12">
             <div class="row">
                 <button type="submit" class="btn btn-default">
-                    Guardar publicación
+                    Actualizar publicación
                 </button>
             </div>
         </div>
@@ -93,16 +101,8 @@
                 minHeight: 300,
                 maxHeight: null,
                 focus: false,
-                fontNames: [
-                    'Arial', 'Helvetica Neue', 'Lucida Grande',
-                    'Verdana', 'Didact Gothic', 'Jockey One',
-                    'Open Sans', 'Oxygen',
-                    'Lato', 'Noto Sans'
-                ],
-                fontNamesIgnoreCheck: ['Arial', 'Helvetica Neue', 'Lucida Grande',
-                    'Verdana', 'Didact Gothic', 'Jockey One',
-                    'Open Sans', 'Oxygen',
-                    'Lato', 'Noto Sans'],
+                fontNames: ['Arial', 'Helvetica Neue', 'Lucida Grande', 'Lato', 'Crimson Text'],
+                fontNamesIgnoreCheck: ['Arial', 'Helvetica Neue', 'Lucida Grande', 'Lato', 'Crimson Text'],
                 hint: {
                     words: ['Hackrhub', 'hackrhub'],
                     match: /\b(\w{1,})$/,

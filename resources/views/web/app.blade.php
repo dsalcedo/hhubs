@@ -7,14 +7,14 @@
     <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
     <meta name="description" content="">
     <meta name="author" content="">
+
     <link rel="icon" href="../../favicon.ico">
 
     <title>@yield('titulo')</title>
 
-    <!-- Bootstrap core CSS -->
-    <link href="//fonts.googleapis.com/css?family=Didact+Gothic|Jockey+One|Open+Sans:400,700|Oxygen|Lato" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css?family=Noto+Sans:400,700" rel="stylesheet">
+    @yield('meta')
 
+    <link href="https://fonts.googleapis.com/css?family=Jockey+One|Lato:300,400" rel="stylesheet">
     <link href="{{asset('css/font-awesome.min.css')}}" rel="stylesheet">
     <link href="{{asset('css/bootstrap.min.css')}}" rel="stylesheet">
     <link href="{{asset('libs/nprogress/nprogress.css')}}" rel="stylesheet">
@@ -227,19 +227,15 @@
 <script src="{{asset('libs/nprogress/nprogress.js')}}"></script>
 <script>
     NProgress.start();
+    window.onload = function () { NProgress.done(); }
 </script>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
 <script>window.jQuery || document.write('<script src="{{asset('js/jquery-1.12.4.min.js')}}"><\/script>')</script>
+
 <script src="{{asset('js/bootstrap.min.js')}}"></script>
 <!-- IE10 viewport hack for Surface/desktop Windows 8 bug -->
 <!--<script src="../../assets/js/ie10-viewport-bug-workaround.js"></script>-->
 
 @yield('javascript')
-
-<script>
-    (function() {
-        NProgress.done();
-    })();
-</script>
 </body>
 </html>

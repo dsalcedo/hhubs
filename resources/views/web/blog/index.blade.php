@@ -3,29 +3,28 @@
 @section('titulo', 'Blog')
 
 @section('css')
+    <link href="https://fonts.googleapis.com/css?family=Montserrat|Crimson+Text:400" rel="stylesheet">
     <style>
+        body {
+            background: #fff;
+        }
         .card {
             font-weight: 300;
             font-size: 1.5rem;
             width: 100%;
             margin-bottom: 25px;
             padding: 10px 15px;
-            border-radius: 4px;
+            border-radius: 0px;
             background-color: #fff;
-            border: 1px solid #eee;
-            box-shadow: 0 1px 1px rgba(0,0,0,0.2);
+            border-bottom: 1px solid #eee;
         }
 
         .card__title {
             color: #333;
-
-            margin: 15px 0;
-            font-weight: 600;
-            font-family: 'Lato', sans-serif;
+            margin: 15px -15px;
+            font-family: 'Montserrat', sans-serif;
             font-size: 2.5rem;
-            letter-spacing: -.01em;
-            line-height: 1;
-
+            letter-spacing: 0;
         }
 
         .card__title a {
@@ -41,10 +40,8 @@
             background-color: #ecf0f1;
             position: relative;
             margin: -10px -15px 0;
-            height: 150px;
+            height: 215px;
             background-size: cover;
-            border-top-left-radius: 4px;
-            border-top-right-radius: 4px;
         }
 
         .card__icon {
@@ -62,17 +59,12 @@
             height: 50px;
         }
 
-        .card__content {
-            font-weight: 300;
-            color: #585858;
-        }
-
         .card__footer {
             padding: 0.2em 0;
-            margin: 1em 0 0.5em 0;
+            margin: 10px -15px;
             font-size: 0.8em;
             font-weight: 300;
-            color: #1abc9c;
+            color: #3e3e3e;
         }
 
 
@@ -87,22 +79,16 @@
                 <article class="card">
                     <a href="{{route('web.post', $post->slug)}}">
                         <section class="card__image" style="background-image: url(https://unsplash.it/300/150)">
-                            <span class="card__icon text-center">
+                           <!--<span class="card__icon text-center">
                                 <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
-                            </span>
+                            </span>-->
                         </section>
                     </a>
-
                     <h2 class="card__title">
                         <a href="{{route('web.post', $post->slug)}}">
                             {{ $post->titulo }}
                         </a>
                     </h2>
-
-                    <section class="card__content">
-                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci numquam est minima ad placeat, animi laudantium doloribus vitae eligendi fugit rerum itaque porro! Officiis molestias aliquam dolorum placeat corrupti exercitationem!
-                    </section>
-
                     <section class="card__footer">
                         {{ $post->created_at->format('Y-m-d') }}
                     </section>
