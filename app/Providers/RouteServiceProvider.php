@@ -27,6 +27,7 @@ class RouteServiceProvider extends ServiceProvider
 
         parent::boot();
         Route::model('postSlug', 'App\Models\Blog\Posts');
+        Route::model('cursoSlug', 'App\Models\Cursos\Cursos');
         Route::model('postId', 'App\Models\Blog\Posts');
 
     }

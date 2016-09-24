@@ -1,25 +1,22 @@
 <?php
 
-namespace App\Models\Blog;
+namespace App\Models\Carreras;
 
-use Illuminate\Database\Eloquent\Model;
 use Cviebrock\EloquentSluggable\Sluggable;
 use Cviebrock\EloquentSluggable\SluggableScopeHelpers;
+use Illuminate\Database\Eloquent\Model;
 
-class Posts extends Model
+class Carreras extends Model
 {
+
     use Sluggable;
     use SluggableScopeHelpers;
 
-    protected $table = 'posts';
+    protected $table = 'carreras';
     protected $fillable = [
-        'usuario_id',
         'titulo',
-        'slug',
         'estado',
-        'destacado',
-        'cover',
-        'contenido'
+        'slug'
     ];
 
     /**
@@ -45,11 +42,5 @@ class Posts extends Model
     {
         return 'slug';
     }
-
-    public function autor()
-    {
-        return $this->hasOne(\App\Models\Usuario\Usuario::class,'id','usuario_id');
-    }
-
-
 }
+

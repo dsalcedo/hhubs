@@ -246,7 +246,7 @@
                     <div class="panel-body">
                         <ul class="navbar-nav nav-stacked">
                             <li class="nav"><a href="{{ route('manager.cursos') }}">Ver todos</a></li>
-                            <li class="nav"><a href="#">Crear</a></li>
+                            <li class="nav"><a href="{{ route('manager.cursos.crear') }}">Crear</a></li>
                         </ul>
                     </div>
                 </div>
