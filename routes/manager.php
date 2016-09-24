@@ -8,6 +8,10 @@ Route::group([
 ], function ($router) {
     Route::get('/', 'ManagerController@index')->name('manager.index');
     Route::get('logout', 'ManagerController@logout')->name('manager.salir');
+
+
+    Route::get('cursos', 'Cursos\CursosController@index')->name('manager.cursos');
+
 });
 
 

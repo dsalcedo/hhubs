@@ -33,6 +33,17 @@
         .menu-hackr {
             background-color: #222 !important;
             padding: 15px 15px 15px 15px;
+            -webkit-border-radius: 0 !important;
+            -moz-border-radius: 0 !important;
+            border-radius: 0 !important;
+        }
+        .nav-stacked >li a {
+            osition: relative;
+            display: block;
+            padding-left: 35px;
+        }
+       .nav-stacked .menu-hackr:hover {
+            background-color: #353535!important;
         }
         a.menu {
             color: #828282 !important;
@@ -112,7 +123,11 @@
         }
 
         .navbar-nav{
-            padding-left: 15px !important;
+            padding-left: 0px !important;
+        }
+
+        .navbar .panel-body{
+            padding: 0;
         }
 
 
@@ -175,6 +190,11 @@
             margin-right: -105px;
         }
 
+        .collapse.in {
+            display: block;
+            background: #272727;
+        }
+
         @media(max-width: 768px){
             .navbar-fixed-left {
                 display: none;
@@ -217,16 +237,17 @@
                 </div>
                 <div class="panel menu-hackr">
                     <div role="tab" id="headingOne">
-                        <a class="menu" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                        <a href="#subCursos" class="menu" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="subCursos">
                             <span class="fa fa-book"></span> Cursos <span class="caret"></span>
                         </a>
                     </div>
-                    <div id="collapseOne" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                        <div class="panel-body">
-                            <ul class="navbar-nav nav-stacked">
-                                <li class="nav"><a href="#">Sub Menu1</a></li>
-                            </ul>
-                        </div>
+                </div>
+                <div id="subCursos" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
+                    <div class="panel-body">
+                        <ul class="navbar-nav nav-stacked">
+                            <li class="nav"><a href="{{ route('manager.cursos') }}">Ver todos</a></li>
+                            <li class="nav"><a href="#">Crear</a></li>
+                        </ul>
                     </div>
                 </div>
                 <div class="panel menu-hackr">
@@ -255,12 +276,12 @@
                             <span class="fa fa-cogs"></span> Perfil <span class="caret"></span>
                         </a>
                     </div>
-                    <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
-                        <div class="panel-body">
-                            <ul class="navbar-nav nav-stacked">
-                                <li class="nav"><a href="#">Sub Menu1</a></li>
-                            </ul>
-                        </div>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingTwo">
+                    <div class="panel-body">
+                        <ul class="navbar-nav nav-stacked">
+                            <li class="nav"><a href="#">Sub Menu1</a></li>
+                        </ul>
                     </div>
                 </div>
             </div>

@@ -249,7 +249,7 @@
                 <div style=" margin-bottom: 15px;" class="fb-page" data-href="https://www.facebook.com/hackrhub/" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/hackrhub/" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/hackrhub/">HackrHub</a></blockquote></div>
             </div>
             <div class="col-md-9">
-                <div class="fb-comments col-md-12" data-href="{{route('web.post', $post->slug)}}" data-numposts="5"></div>
+                <div class="fb-comments col-md-12" data-href="{{route('web.post', $post->slug)}}" data-numposts="15"></div>
             </div>
         </div>
     </div>
