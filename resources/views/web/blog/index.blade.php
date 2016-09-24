@@ -40,8 +40,8 @@
             background-color: #ecf0f1;
             position: relative;
             margin: -10px -15px 0;
-            height: 215px;
-            background-size: cover;
+            max-height: 215px;
+            /*background-size: cover;*/
         }
 
         .card__icon {
@@ -78,7 +78,8 @@
             <div class="col-md-4 item">
                 <article class="card">
                     <a href="{{route('web.post', $post->slug)}}">
-                        <section class="card__image" style="background-image: url(https://unsplash.it/300/150)">
+                        <section class="card__image">
+                            <img src="{{asset($post->cover)}}" class="img-responsive">
                            <!--<span class="card__icon text-center">
                                 <span class="glyphicon glyphicon-globe" aria-hidden="true"></span>
                             </span>-->
