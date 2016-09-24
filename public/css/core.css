@@ -165,6 +165,9 @@ i.fa-twitter {
     color: #fff!important;
     background: #1dcaff!important;
 }
+th {
+    vertical-align: middle;
+}
 /*
 * Thumbnail card
 */

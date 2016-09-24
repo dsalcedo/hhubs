@@ -56,6 +56,7 @@ class CursosController extends Controller
 
     public function curso($curso)
     {
-        return view('manager.cursos.curso.index');
+        $args = compact('curso');
+        return view('manager.cursos.curso.index', $args);
     }
 }
