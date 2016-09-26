@@ -22,6 +22,7 @@ class CreateCursosTable extends Migration
             $table->integer('carrera_id')->unsigned();
             $table->text('tarjeta')->nullable();
             $table->text('cover')->nullable();
+            $table->boolean('gratuito')->default(false);
             $table->timestamps();
 
             $table->foreign('carrera_id')->references('id')->on('carreras');

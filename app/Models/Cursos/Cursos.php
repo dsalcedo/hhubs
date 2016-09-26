@@ -19,6 +19,7 @@ class Cursos extends Model
         'carrera_id',
         'tarjeta',
         'cover',
+        'gratuito'
     ];
 
     /**
@@ -43,5 +44,10 @@ class Cursos extends Model
     public function getRouteKeyName()
     {
         return 'slug';
+    }
+
+    public function carrera()
+    {
+        return $this->hasOne('App\Models\Carreras\Carreras', 'id', 'carrera_id');
     }
 }

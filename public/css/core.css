@@ -252,6 +252,11 @@ th {
     margin-right: -25px;
     font-size: 35px;
 }
+.app-content {
+    background: #fff;
+    padding: 10px;
+    border-radius: 3px;
+}
 @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {
         color: #3e3e3e;

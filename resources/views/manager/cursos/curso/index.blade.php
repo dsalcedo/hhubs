@@ -29,7 +29,11 @@
                 </a>
                 <h1>{{$curso->titulo}}</h1>
                 <h2>Módulos</h2>
-                <table class="table table-bordered" id="modulos">
+                <table class="table table-bordered"
+                       id="modulos"
+                       data-toggle="table"
+                       data-detail-view="true"
+                       data-detail-formatter="detailFormatter">
                     <thead>
                         <tr>
                             <th></th>
@@ -84,7 +88,6 @@
                                 <a href="" class="btn btn-small btn-primary">Editar</a>
                             </td>
                         </tr>
-
                     </tbody>
                 </table>
             </div>
@@ -94,6 +97,7 @@
 
 @section('javascript')
     {!! Html::script('libs/rowsorter/RowSorter.js') !!}
+    <style src="//issues.wenzhixin.net.cn/bootstrap-table/assets/bootstrap-table/src/bootstrap-table.js"></style>
     <script>
         $("#modulos").rowSorter({
             handler: "th.sorter",
@@ -104,5 +108,13 @@
                 console.log(tbody);
             }
         });
+
+        function detailFormatter(index, row) {
+            var html = [];
+            $.each(row, function (key, value) {
+                html.push('<p>a</p>');
+            });
+            return html.join('');
+        }
     </script>
 @endsection
