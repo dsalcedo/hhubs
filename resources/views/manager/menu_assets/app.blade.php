@@ -236,7 +236,7 @@
                     </a>
                 </div>
                 <div class="panel menu-hackr">
-                    <a href="{{ route('manager.carreras') }}" class="menu">
+                    <a href="{{ route('manager.carreras') }}" class="menu" id="link-carreras">
                         <i class="fa fa-graduation-cap" aria-hidden="true"></i>
                         Carreras
                     </a>

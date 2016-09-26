@@ -36,3 +36,9 @@
         </table>
     </div>
 @endsection
+
+@section('javascript')
+    <script>
+        $('#link-carreras').addClass('active');
+    </script>
+@endsection

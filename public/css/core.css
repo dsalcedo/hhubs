@@ -254,8 +254,18 @@ th {
 }
 .app-content {
     background: #fff;
-    padding: 10px;
+    padding: 30px;
     border-radius: 3px;
+}
+
+.table>tbody>tr>td, .table>tbody>tr>th, .table>tfoot>tr>td, .table>tfoot>tr>th, .table>thead>tr>td, .table>thead>tr>th {
+    padding: 8px;
+    line-height: 1.42857143;
+    vertical-align: middle;
+    border-top: 1px solid #ddd;
+}
+a.menu.active {
+    color: #cb1d2c!important;
 }
 @media (max-width: 767px) {
     .navbar-default .navbar-nav .open .dropdown-menu > li > a {

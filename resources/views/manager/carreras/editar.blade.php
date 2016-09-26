@@ -13,7 +13,20 @@
             <label for="estado">Estado</label>
             {!! Form::select('estado', ['draft' => 'Draft', 'publicada' => 'Publicada'], null, ['class'=>'form-control']) !!}
         </div>
-        <button type="submit" class="btn btn-default">Guardar</button>
+        <div class="row">
+            <div class="col-md-6">
+                <button type="submit" class="btn btn-success">Guardar</button>
+            </div>
+            <div class="col-md-6 text-right">
+                <a href="{{ route('manager.carreras') }}" class="btn btn-danger">Cancelar</a>
+            </div>
+        </div>
         {!! Form::close() !!}
     </div>
+@endsection
+
+@section('javascript')
+    <script>
+        $('#link-carreras').addClass('active');
+    </script>
 @endsection
