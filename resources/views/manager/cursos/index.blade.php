@@ -43,3 +43,9 @@
         </div>
     </div>
 @endsection
+
+@section('javascript')
+    <script>
+        $('#link-cursos').addClass('active');
+    </script>
+@endsection

@@ -242,7 +242,7 @@
                     </a>
                 </div>
                 <div class="panel menu-hackr">
-                    <a href="{{ route('manager.cursos') }}" class="menu">
+                    <a href="{{ route('manager.cursos') }}" class="menu" id="link-cursos">
                         <span class="fa fa-book"></span> Cursos
                     </a>
                 </div>

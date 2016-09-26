@@ -104,6 +104,7 @@
     {!! Html::script('libs/summernote/summernote.min.js') !!}
     {!! Html::script('libs/summernote/lang/summernote-es-ES.min.js') !!}
     <script>
+        $('#link-cursos').addClass('active');
         $(document).ready(function() {
             var setTo = null;
             $(document).on('click', '.open-modal', function () {
