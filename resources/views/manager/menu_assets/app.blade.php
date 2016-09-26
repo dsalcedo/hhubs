@@ -236,19 +236,15 @@
                     </a>
                 </div>
                 <div class="panel menu-hackr">
-                    <div role="tab" id="headingOne">
-                        <a href="#subCursos" class="menu" data-toggle="collapse" data-parent="#accordion" aria-expanded="false" aria-controls="subCursos">
-                            <span class="fa fa-book"></span> Cursos <span class="caret"></span>
-                        </a>
-                    </div>
+                    <a href="{{ route('manager.carreras') }}" class="menu">
+                        <i class="fa fa-graduation-cap" aria-hidden="true"></i>
+                        Carreras
+                    </a>
                 </div>
-                <div id="subCursos" class="panel-collapse collapse" role="tabpanel" aria-labelledby="headingOne">
-                    <div class="panel-body">
-                        <ul class="navbar-nav nav-stacked">
-                            <li class="nav"><a href="{{ route('manager.cursos') }}">Ver todos</a></li>
-                            <li class="nav"><a href="{{ route('manager.cursos.crear') }}">Crear</a></li>
-                        </ul>
-                    </div>
+                <div class="panel menu-hackr">
+                    <a href="{{ route('manager.cursos') }}" class="menu">
+                        <span class="fa fa-book"></span> Cursos
+                    </a>
                 </div>
                 <div class="panel menu-hackr">
                     <a href="{{ route('manager.blog.index') }}" id="link-blog" class="menu">
