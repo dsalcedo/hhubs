@@ -23,7 +23,7 @@
         </div>
     </div>
 
-    <div class="col-md-12" style="background: #fff; padding: 10px; border-radius: 3px;">
+    <div class="col-md-12 app-content">
         <table class="table table-bordered">
             <thead>
             <tr>
