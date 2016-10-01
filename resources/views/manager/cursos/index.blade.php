@@ -1,4 +1,4 @@
-@extends('manager.menu_assets.app')
+@extends('manager.app')
 
 @section('titulo', 'Manager > Cursos')
 
@@ -18,7 +18,7 @@
                 <div class="thumbnail card">
                     <div class="caption">
                         <h3 class="text-center card-title">
-                            <a href="{{ route('manager.cursos.editar') }}">
+                            <a href="{{ route('manager.cursos.editar', $curso->slug) }}">
                                 {{ $curso->titulo }}
                             </a>
                         </h3>
@@ -27,7 +27,7 @@
                         <span class="label label-primary card-art">
                             {{ $curso->carrera->titulo }}
                         </span>
-                        <a href="{{ route('manager.cursos.editar') }}">
+                        <a href="{{ route('manager.cursos.editar', $curso->slug) }}">
                             <img src="{{ $curso->cover }}" alt="...">
                         </a>
                     </div>

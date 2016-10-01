@@ -1,4 +1,4 @@
-@extends('manager.menu_assets.app')
+@extends('manager.app')
 
 @section('titulo', $curso->titulo)
 

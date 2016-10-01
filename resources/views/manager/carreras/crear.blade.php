@@ -1,4 +1,4 @@
-@extends('manager.menu_assets.app')
+@extends('manager.app')
 
 @section('titulo', 'Crear carrera')
 
@@ -15,10 +15,10 @@
             </div>
             <div class="row">
                 <div class="col-md-6">
-                    <button type="submit" class="btn btn-success">Guardar</button>
+                    <a href="{{ route('manager.carreras') }}" class="btn btn-danger">Cancelar</a>
                 </div>
                 <div class="col-md-6 text-right">
-                    <a href="{{ route('manager.carreras') }}" class="btn btn-danger">Cancelar</a>
+                    <button type="submit" class="btn btn-success">Guardar</button>
                 </div>
             </div>
         {!! Form::close() !!}

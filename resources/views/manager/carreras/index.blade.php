@@ -1,11 +1,11 @@
-@extends('manager.menu_assets.app')
+@extends('manager.app')
 
 @section('titulo', 'Manager > Carreras')
 
 @section('body')
     <div class="col-md-12">
         <div class="row text-right">
-            <a href="{{route('manager.carrera.crear')}}" class="btn btn-round btn-primary" style="margin-bottom: 25px;">
+            <a href="{{route('manager.carrera.crear')}}" class="btn btn-round btn-primary" style="margin-top:25px; margin-bottom: 25px;">
                 Agregar carrera
             </a>
         </div>

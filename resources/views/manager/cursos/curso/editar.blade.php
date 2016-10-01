@@ -1,6 +1,6 @@
 @extends('manager.app')
 
-@section('titulo', 'Manager > Crear curso')
+@section('titulo', 'Editar > '.$curso->titulo)
 
 @section('css')
     {!! Html::style('libs/summernote/summernote.css') !!}
@@ -30,7 +30,7 @@
 @section('body')
     <div class="col-md-12">
         <div class="row">
-            {!! Form::open(['route'=>'manager.cursos.create']) !!}
+            {!! Form::model($curso,['route'=>['manager.cursos.update', $curso->slug]]) !!}
             <div class="col-md-9" style="margin-bottom: 30px;">
                 <div class="form-group">
                     <label>Título</label>
@@ -102,7 +102,6 @@
     </div>
 @endsection
 
-
 @section('javascript')
     <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
     {!! Html::script('libs/summernote/summernote.min.js') !!}
@@ -112,7 +111,7 @@
         $(document).ready(function() {
             var setTo = null;
             $(document).on('click', '.open-modal', function () {
-               setTo = $(this).data('item');
+                setTo = $(this).data('item');
             });
             $('#summernote').summernote({
                 dialogsInBody: true,
@@ -158,7 +157,6 @@
                 }
             });
 
-
             Dropzone.autoDiscover = false;
 
             $("#mediaUpload").dropzone({
@@ -188,8 +186,6 @@
                     return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
                 }
             });
-
-
         });
     </script>
 @endsection
