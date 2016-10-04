@@ -216,19 +216,33 @@
                                         <table class="table table-bordered">
                                             <thead>
                                             <tr>
-                                                <th>#</th>
-                                                <th>First Name</th>
+                                                <th width="50"></th>
+                                                <th width="50">#</th>
                                                 <th>Last Name</th>
                                                 <th>Username</th>
                                             </tr>
                                             </thead>
                                             <tbody>
-                                            <tr>
-                                                <th scope="row">1</th>
-                                                <td>Mark</td>
-                                                <td>Otto</td>
-                                                <td>@mdo</td>
-                                            </tr>
+                                                <tr>
+                                                    <th scope="row" class="text-center sorter">
+                                                        <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                                                    </th>
+                                                    <td>1</td>
+                                                    <td>Otto</td>
+                                                    <td width="100" class="text-center">
+                                                        <a href="#" class="btn btn-default">Editar</a>
+                                                    </td>
+                                                </tr>
+                                                <tr>
+                                                    <th scope="row" class="text-center sorter">
+                                                        <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                                                    </th>
+                                                    <td>2</td>
+                                                    <td>Ottos</td>
+                                                    <td width="100" class="text-center">
+                                                        <a href="#" class="btn btn-default">Editar</a>
+                                                    </td>
+                                                </tr>
                                             </tbody>
                                         </table>
                                     </div>
