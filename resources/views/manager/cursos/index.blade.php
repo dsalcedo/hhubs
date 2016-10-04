@@ -13,32 +13,42 @@
                 </div>
             </div>
 
-            @foreach($cursos as $curso)
-            <div class="col-sm-6 col-md-4">
-                <div class="thumbnail card">
-                    <div class="caption">
-                        <h3 class="text-center card-title">
-                            <a href="{{ route('manager.cursos.editar', $curso->slug) }}">
-                                {{ $curso->titulo }}
-                            </a>
-                        </h3>
-                    </div>
-                    <div class="thumbnail-card-art">
-                        <span class="label label-primary card-art">
-                            {{ $curso->carrera->titulo }}
-                        </span>
-                        <a href="{{ route('manager.cursos.editar', $curso->slug) }}">
-                            <img src="{{ $curso->cover }}" alt="...">
-                        </a>
-                    </div>
-                    <div class="caption">
-                        <span class="text-muted small text-uppercase">
-                            {{ $curso->estado }}
-                        </span>
-                    </div>
-                </div>
+            <div class="col-md-12 app-content">
+                <table class="table table-bordered">
+                    <thead>
+                    <tr>
+                        <th>Curso</th>
+                        <th>Módulos</th>
+                        <th>Estado</th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    @foreach($cursos as $curso)
+                        <tr>
+                            <td>{{ $curso->titulo }}</td>
+                            <td>
+                                 0 Módulos
+                            </td>
+                            <td style="width: 60px;">
+                                <!-- Single button -->
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        {{ $curso->estado }} <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu">
+                                        <li><a href="#">Draft</a></li>
+                                        <li><a href="#">Publicado</a></li>
+                                    </ul>
+                                </div>
+                            </td>
+                            <td style="width: 45px;">
+                                <a href="{{ route('manager.cursos.editar', $curso->slug) }}" class="btn btn-small btn-primary">Editar</a>
+                            </td>
+                        </tr>
+                    @endforeach
+                    </tbody>
+                </table>
             </div>
-            @endforeach
 
         </div>
     </div>

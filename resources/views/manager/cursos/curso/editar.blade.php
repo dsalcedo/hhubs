@@ -24,62 +24,206 @@
             font-size: 22px;
             line-height: 160%;
         }
+        .manager-curso-tabs {
+            background: #f5f5f5;
+        }
+        .nav-tabs>li>a {
+            margin-right: 2px;
+            line-height: 1.42857143;
+            border: 1px solid transparent;
+            border-radius: 2px 2px 0 0;
+        }
+        .nav-tabs>li.active>a,
+        .nav-tabs>li.active>a:focus,
+        .nav-tabs>li.active>a:hover {
+            color: #cb1d2c;
+            cursor: default;
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-bottom-color: transparent;
+        }
+        .tab-content {
+            background: #ffffff;
+            border-left: 1px solid #ddd;
+            border-right: 1px solid #ddd;
+            border-bottom: 1px solid #ddd;
+            padding: 15px;
+        }
+        .btn-papper {
+            border-radius: 2px;
+        }
+        .sorter {
+            cursor: move;
+            background: #f5f5f5;
+        }
+        .sorting-row{
+            background: #f5f5f5;
+        }
     </style>
 @endsection
 
 @section('body')
     <div class="col-md-12">
         <div class="row">
-            {!! Form::model($curso,['route'=>['manager.cursos.update', $curso->slug]]) !!}
-            <div class="col-md-9" style="margin-bottom: 30px;">
-                <div class="form-group">
-                    <label>Título</label>
-                    {!! Form::text('titulo', null, ['class'=>'form-control', 'placeholder'=>'Escribe un título', 'maxlength'=>255,'autofocus']) !!}
-                </div>
-                <div class="form-group">
-                    <label>Descripción</label>
-                    {!! Form::textarea('contenido', null, ['id'=>'summernote']) !!}
-                </div>
 
-                <div class="col-md-12" style="margin-bottom: 30px;">
-                    <div class="row" style="margin-bottom: 15px;">
-                        <div class="col-md-6">
-                            <span class="btn btn-primary open-modal" data-toggle="modal" data-target="#myModal" data-item="tarjeta">Cargar tarjeta</span>
-                            <div class="preview-thumbnail" id="tarjeta"></div>
-                            {!! Form::hidden('tarjeta', null) !!}
-                        </div>
-                        <div class="col-md-6">
-                            <span class="btn btn-primary open-modal" data-toggle="modal" data-target="#myModal" data-item="cover">Cargar imagen destacada</span>
-                            <div class="preview-thumbnail" id="cover"></div>
-                            {!! Form::hidden('cover', null) !!}
-                        </div>
-                    </div>
-                </div>
 
-            </div>
-            <div class="col-md-3">
-                <div class="form-group">
-                    <label for="titulo">Carrera</label>
-                    {!! Form::select('carrera_id', $carreras, null, ['class'=>'form-control','placeholder'=>'Selecciona carrera']) !!}
-                </div>
-                <div class="form-group">
-                    <label for="titulo">Estado del curso</label>
-                    {!! Form::select('estado', ['draft' => 'Draft', 'publicado' => 'Publicado'], null, ['class'=>'form-control']) !!}
-                </div>
-                <div class="checkbox">
-                    <label>
-                        {!! Form::checkbox('gratuito', '1', null) !!} Marcar como gratuito
-                    </label>
-                </div>
-                <div class="col-md-12">
+            <ul class="nav nav-tabs manager-curso-tabs" role="tablist">
+                <li role="presentation" class="active">
+                    <a href="#content-curso" aria-controls="home" role="tab" data-toggle="tab">
+                        <i class="fa fa-bookmark-o" aria-hidden="true"></i> Curso
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#content-lecciones" aria-controls="profile" role="tab" data-toggle="tab">
+                        <i class="fa fa-list-ol" aria-hidden="true"></i> Lecciónes
+                    </a>
+                </li>
+                <li role="presentation">
+                    <a href="#content-modulos" aria-controls="profile" role="tab" data-toggle="tab">
+                        <i class="fa fa-th-list" aria-hidden="true"></i> Módulos
+                    </a>
+                </li>
+            </ul>
+
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <!-- Curso manager-->
+                <div role="tabpanel" id="content-curso" class="tab-pane active">
                     <div class="row">
-                        <button type="submit" class="btn btn-default">
-                            Guardar publicación
-                        </button>
+                        {!! Form::model($curso,['route'=>['manager.cursos.update', $curso->slug]]) !!}
+                            <div class="col-md-9" style="margin-bottom: 30px;">
+                                <div class="form-group">
+                                    <label>Título</label>
+                                    {!! Form::text('titulo', null, ['class'=>'form-control', 'placeholder'=>'Escribe un título', 'maxlength'=>255,'autofocus']) !!}
+                                </div>
+                                <div class="form-group">
+                                    <label>Descripción</label>
+                                    {!! Form::textarea('contenido', null, ['id'=>'summernote']) !!}
+                                </div>
+                                <div class="col-md-12" style="margin-bottom: 30px;">
+                                    <div class="row" style="margin-bottom: 15px;">
+                                        <div class="col-md-6">
+                                            <span class="btn btn-primary open-modal" data-toggle="modal" data-target="#myModal" data-item="tarjeta">Cargar tarjeta</span>
+                                            <div class="preview-thumbnail" id="tarjeta"></div>
+                                            {!! Form::hidden('tarjeta', null) !!}
+                                        </div>
+                                        <div class="col-md-6">
+                                            <span class="btn btn-primary open-modal" data-toggle="modal" data-target="#myModal" data-item="cover">Cargar imagen destacada</span>
+                                            <div class="preview-thumbnail" id="cover"></div>
+                                            {!! Form::hidden('cover', null) !!}
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-md-3">
+                                <div class="form-group">
+                                    <label for="titulo">Carrera</label>
+                                    {!! Form::select('carrera_id', $carreras, null, ['class'=>'form-control','placeholder'=>'Selecciona carrera']) !!}
+                                </div>
+                                <div class="form-group">
+                                    <label for="titulo">Estado del curso</label>
+                                    {!! Form::select('estado', ['draft' => 'Draft', 'publicado' => 'Publicado'], null, ['class'=>'form-control']) !!}
+                                </div>
+                                <div class="checkbox">
+                                    <label>
+                                        {!! Form::checkbox('gratuito', '1', null) !!} Marcar como gratuito
+                                    </label>
+                                </div>
+                                <div class="col-md-12">
+                                    <div class="row">
+                                        <button type="submit" class="btn btn-default">
+                                            Guardar publicación
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        {!! Form::close() !!}
+                    </div>
+                </div>
+                <!-- Módulos manager-->
+                <div role="tabpanel" id="content-lecciones" class="tab-pane">
+                    <div class="row text-right">
+                        <div class="col-md-12">
+                            <a href="#" class="btn btn-primary btn-papper">Agregar módulo</a>
+                        </div>
+                        <div class="col-md-12" style="margin-top: 15px;">
+                            <table id="tabla-modulos" class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th width="50"></th>
+                                        <th width="50">#</th>
+                                        <th>Título</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr data-posicion="1">
+                                        <th scope="row" class="text-center sorter">
+                                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                                        </th>
+                                        <td class="text-left">1</td>
+                                        <td>Otto</td>
+                                        <td width="100" class="text-center">
+                                            <a href="#" class="btn btn-default">Editar</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="text-center sorter">
+                                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                                        </th>
+                                        <td class="text-left">2</td>
+                                        <td>Otto</td>
+                                        <td width="100" class="text-center">
+                                            <a href="#" class="btn btn-default">Editar</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="text-center sorter">
+                                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                                        </th>
+                                        <td class="text-left">3</td>
+                                        <td>Otto</td>
+                                        <td width="100" class="text-center">
+                                            <a href="#" class="btn btn-default">Editar</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="text-center sorter">
+                                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                                        </th>
+                                        <td class="text-left">4</td>
+                                        <td>Otto</td>
+                                        <td width="100" class="text-center">
+                                            <a href="#" class="btn btn-default">Editar</a>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <th scope="row" class="text-center sorter">
+                                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
+                                        </th>
+                                        <td class="text-left">5</td>
+                                        <td>Otto</td>
+                                        <td width="100" class="text-center">
+                                            <a href="#" class="btn btn-default">Editar</a>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Lecciones manager-->
+                <div role="tabpanel" id="content-modulos" class="tab-pane">
+                    <div class="row text-right">
+                        <div class="col-md-12">
+                            <a href="#" class="btn btn-primary btn-papper">Agregar lección</a>
+                        </div>
                     </div>
                 </div>
             </div>
-            {!! Form::close() !!}
+
+
+
+
         </div>
     </div>
 
@@ -106,6 +250,7 @@
     <script src="https://rawgit.com/enyo/dropzone/master/dist/dropzone.js"></script>
     {!! Html::script('libs/summernote/summernote.min.js') !!}
     {!! Html::script('libs/summernote/lang/summernote-es-ES.min.js') !!}
+    {!! Html::script('libs/rowsorter/RowSorter.js') !!}
     <script>
         $('#link-cursos').addClass('active');
         $(document).ready(function() {
@@ -186,6 +331,14 @@
                     return (_ref = file.previewElement) != null ? _ref.parentNode.removeChild(file.previewElement) : void 0;
                 }
             });
+        });
+
+        //Tabla de módulos
+        $("#tabla-modulos").rowSorter({
+            handler         : 'th.sorter',
+            tbody           : true,
+            tableClass      : 'sorting-table',
+            dragClass       : 'sorting-row'
         });
     </script>
 @endsection

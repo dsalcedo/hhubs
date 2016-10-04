@@ -66,4 +66,9 @@ class CursosController extends Controller
         $carreras = Carreras::where('estado', 'publicada')->pluck('titulo', 'id');
         return view('manager.cursos.curso.editar', compact('curso', 'carreras'));
     }
+
+    public function test()
+    {
+        return view('manager.cursos.curso.test');
+    }
 }
