@@ -50,4 +50,9 @@ class Cursos extends Model
     {
         return $this->hasOne('App\Models\Carreras\Carreras', 'id', 'carrera_id');
     }
+
+    public function lecciones()
+    {
+        return $this->hasMany('App\Models\Cursos\CursosLecciones', 'curso_id', 'id');
+    }
 }

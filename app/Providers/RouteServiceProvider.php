@@ -3,6 +3,7 @@
 namespace App\Providers;
 
 
+use App\Models\Cursos\Cursos;
 use Illuminate\Support\Facades\Route;
 use Illuminate\Foundation\Support\Providers\RouteServiceProvider as ServiceProvider;
 
@@ -24,12 +25,11 @@ class RouteServiceProvider extends ServiceProvider
      */
     public function boot()
     {
-
         parent::boot();
+
         Route::model('postSlug', 'App\Models\Blog\Posts');
         Route::model('cursoSlug', 'App\Models\Cursos\Cursos');
         Route::model('carreraSlug', 'App\Models\Carreras\Carreras');
-        Route::model('postId', 'App\Models\Blog\Posts');
         Route::model('carreraId', 'App\Models\Carreras\Carreras');
 
     }

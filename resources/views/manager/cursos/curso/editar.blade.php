@@ -56,8 +56,19 @@
             cursor: move;
             background: #f5f5f5;
         }
-        .sorting-row{
+        .sorting-row {
             background: #f5f5f5;
+        }
+        .panel {
+            border : 0px;
+        }
+        .panel-default>.panel-heading {
+            border:1px solid #ddd;
+        }
+        .panel-body {
+            border-left:1px solid #ddd;
+            border-top:0px transparent!important;
+            border-right:1px solid #ddd;
         }
     </style>
 @endsection
@@ -142,9 +153,11 @@
                 </div>
                 <!-- Módulos manager-->
                 <div role="tabpanel" id="content-lecciones" class="tab-pane">
-                    <div class="row text-right">
-                        <div class="col-md-12">
-                            <a href="#" class="btn btn-primary btn-papper">Agregar módulo</a>
+                    <div class="row">
+                        <div class="col-md-12 text-right">
+                            <a href="#" class="btn btn-primary btn-papper" data-toggle="modal" data-target="#modal-leccion">
+                                Agregar lección
+                            </a>
                         </div>
                         <div class="col-md-12" style="margin-top: 15px;">
                             <table id="tabla-modulos" class="table table-bordered">
@@ -153,59 +166,23 @@
                                         <th width="50"></th>
                                         <th width="50">#</th>
                                         <th>Título</th>
+                                        <th>Módulos</th>
                                     </tr>
                                 </thead>
-                                <tbody>
-                                    <tr data-posicion="1">
+                                <tbody id="tabla-lecciones">
+                                @foreach($curso->lecciones as $leccion)
+                                    <tr data-posicion="{{ $leccion->index }}" data-id="{{ $leccion->id }}">
                                         <th scope="row" class="text-center sorter">
                                             <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
                                         </th>
-                                        <td class="text-left">1</td>
-                                        <td>Otto</td>
+                                        <td class="text-left index">{{ $leccion->index }}</td>
+                                        <td class="text-left">{{ $leccion->titulo }}</td>
+                                        <td width="80" class="text-left">0</td>
                                         <td width="100" class="text-center">
                                             <a href="#" class="btn btn-default">Editar</a>
                                         </td>
                                     </tr>
-                                    <tr>
-                                        <th scope="row" class="text-center sorter">
-                                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-                                        </th>
-                                        <td class="text-left">2</td>
-                                        <td>Otto</td>
-                                        <td width="100" class="text-center">
-                                            <a href="#" class="btn btn-default">Editar</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" class="text-center sorter">
-                                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-                                        </th>
-                                        <td class="text-left">3</td>
-                                        <td>Otto</td>
-                                        <td width="100" class="text-center">
-                                            <a href="#" class="btn btn-default">Editar</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" class="text-center sorter">
-                                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-                                        </th>
-                                        <td class="text-left">4</td>
-                                        <td>Otto</td>
-                                        <td width="100" class="text-center">
-                                            <a href="#" class="btn btn-default">Editar</a>
-                                        </td>
-                                    </tr>
-                                    <tr>
-                                        <th scope="row" class="text-center sorter">
-                                            <span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
-                                        </th>
-                                        <td class="text-left">5</td>
-                                        <td>Otto</td>
-                                        <td width="100" class="text-center">
-                                            <a href="#" class="btn btn-default">Editar</a>
-                                        </td>
-                                    </tr>
+                                @endforeach
                                 </tbody>
                             </table>
                         </div>
@@ -213,20 +190,80 @@
                 </div>
                 <!-- Lecciones manager-->
                 <div role="tabpanel" id="content-modulos" class="tab-pane">
-                    <div class="row text-right">
-                        <div class="col-md-12">
-                            <a href="#" class="btn btn-primary btn-papper">Agregar lección</a>
+                    <div class="row">
+
+                        <div class="col-md-12" style="margin-top: 15px;">
+
+                            <div class="panel-group" id="accordion" role="tablist" aria-multiselectable="true">
+                                @foreach($curso->lecciones as $leccion)
+                                <div class="panel panel-default">
+                                    <div class="panel-heading"  id="data{{$leccion->id}}" role="button" data-toggle="collapse" data-parent="#accordion" href="#collapse{{$leccion->id}}" aria-expanded="true" aria-controls="collapse{{$leccion->id}}">
+                                        <h4 class="panel-title" >
+                                            <span class="pull-right">
+                                                <i class="fa fa-bookmark" aria-hidden="true" style="color: #cb1d2c;"></i>
+                                            </span>
+                                            #{{ $leccion->index. ' ' .$leccion->titulo }}
+                                        </h4>
+                                    </div>
+                                    <div id="collapse{{$leccion->id}}" class="panel-collapse collapse {{($loop->first) ? 'in':''}}" role="tabpanel" aria-labelledby="collapse{{$leccion->id}}">
+                                        <div class="panel-body">
+                                            <div class="col-md-12 text-right">
+                                                <div class="row">
+                                                    <a href="#" class="btn btn-primary btn-papper">Agregar módulo</a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <th>#</th>
+                                                <th>First Name</th>
+                                                <th>Last Name</th>
+                                                <th>Username</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            <tr>
+                                                <th scope="row">1</th>
+                                                <td>Mark</td>
+                                                <td>Otto</td>
+                                                <td>@mdo</td>
+                                            </tr>
+                                            </tbody>
+                                        </table>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+
                         </div>
                     </div>
                 </div>
             </div>
-
-
-
-
         </div>
     </div>
 
+
+    <!-- Modal agregrar leccion -->
+    <div class="modal fade" id="modal-leccion" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h4 class="modal-title" id="myModalLabel">Agregar lección</h4>
+                </div>
+                <div class="modal-body">
+                    <div class="form-group">
+                        <label for="leccionTitulo">Título</label>
+                        {!! Form::text('titulo_leccion', null, ['class'=>'form-control']) !!}
+                    </div>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+                    <button type="button" class="btn btn-primary" id="guardar-leccion">Guardar</button>
+                </div>
+            </div>
+        </div>
+    </div>
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
         <div class="modal-dialog" role="document">
@@ -335,10 +372,55 @@
 
         //Tabla de módulos
         $("#tabla-modulos").rowSorter({
-            handler         : 'th.sorter',
-            tbody           : true,
-            tableClass      : 'sorting-table',
-            dragClass       : 'sorting-row'
+            handler    : 'th.sorter',
+            tbody      : true,
+            tableClass : 'sorting-table',
+            dragClass  : 'sorting-row',
+            onDrop     : function (tbody, fila, index) {
+                var items = $('tr[data-posicion]');
+                $.each(items, function (i, item) {
+                    $item = $(item);
+                    i = i+1;
+                    $item.data('posicion', i);
+                });
+            }
+        });
+
+        $(document).on('click', '#guardar-leccion', function (e) {
+            var $titulo  = $('input[name=titulo_leccion]'),
+                $boton   = $('#guardar-leccion');
+
+            if($titulo.val() !=''){
+                $boton.text('Guardando...').addClass('disabled').attr('disabled', true);
+                $.ajax({
+                    method:'post',
+                    url: '{{route('manager.curso.leccion.create', $curso->id)}}',
+                    data: { 'titulo': $titulo.val() }
+                }).done(function (res) {
+                    if(res.success){
+                        $titulo.val('');
+                        $boton.text('Guardar').removeClass('disabled').removeAttr('disabled');
+                        var template = '<tr data-posicion="'+res.data.index+'">' +
+                                            '<th scope="row" class="text-center sorter"> ' +
+                                                '<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span> ' +
+                                            '</th> ' +
+                                            '<td class="text-left index">'+res.data.index+'</td> ' +
+                                            '<td class="text-left">'+res.data.titulo+'</td> ' +
+                                            '<td width="100" class="text-center"> ' +
+                                                '<a href="#" class="btn btn-default">Editar</a> ' +
+                                            '</td> ' +
+                                        '</tr>';
+
+                        $('#tabla-lecciones').append(template);
+                    }
+
+
+                }).fail(function (jqXHR, textStatus, error) {
+                    console.log(jqXHR, textStatus, error)
+                });
+            }
+
+           e.preventDefault();
         });
     </script>
 @endsection

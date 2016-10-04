@@ -67,8 +67,4 @@ class CursosController extends Controller
         return view('manager.cursos.curso.editar', compact('curso', 'carreras'));
     }
 
-    public function test()
-    {
-        return view('manager.cursos.curso.test');
-    }
 }

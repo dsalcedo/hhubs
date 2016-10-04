@@ -18,7 +18,7 @@
                     <thead>
                     <tr>
                         <th>Curso</th>
-                        <th>Módulos</th>
+                        <th>Lecciones</th>
                         <th>Estado</th>
                     </tr>
                     </thead>
@@ -27,7 +27,7 @@
                         <tr>
                             <td>{{ $curso->titulo }}</td>
                             <td>
-                                 0 Módulos
+                                 {{ $curso->lecciones->count() }} Lecciones
                             </td>
                             <td style="width: 60px;">
                                 <!-- Single button -->

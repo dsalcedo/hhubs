@@ -15,14 +15,20 @@ Route::group([
     Route::get('carrera/editar/{carreraSlug}', 'Carreras\CarrerasController@editarCarrera')->name('manager.carrera.editar');
     Route::post('carrera/editar/{carreraSlug}', 'Carreras\CarrerasController@updateCarrera')->name('manager.carrera.update');
 
-    Route::get('cursos', 'Cursos\CursosController@index')->name('manager.cursos');
-    Route::get('cursos/crear', 'Cursos\CursosController@crearCurso')->name('manager.cursos.crear');
-    Route::post('cursos/crear', 'Cursos\CursosController@create')->name('manager.cursos.create');
-    Route::get('curso/editar/{cursoSlug}', 'Cursos\CursosController@updateCurso')->name('manager.cursos.editar');
-    Route::post('curso/editar/{cursoSlug}', 'Cursos\CursosController@updateCurso')->name('manager.cursos.update');
+    Route::group(['prefix'=>'cursos'], function (){
+        Route::get('/', 'Cursos\CursosController@index')->name('manager.cursos');
+        Route::get('curso/{cursoSlug}', 'Cursos\CursosController@curso')->name('manager.curso');
+        Route::get('crear', 'Cursos\CursosController@crearCurso')->name('manager.cursos.crear');
+        Route::post('crear', 'Cursos\CursosController@create')->name('manager.cursos.create');
 
-    Route::get('cursos', 'Cursos\CursosController@index')->name('manager.cursos');
-    Route::get('curso/{cursoSlug}', 'Cursos\CursosController@curso')->name('manager.curso');
+        Route::get('editar/{cursoSlug}', 'Cursos\CursosController@updateCurso')->name('manager.cursos.editar');
+        Route::post('curso/editar/{cursoSlug}', 'Cursos\CursosController@updateCurso')->name('manager.cursos.update');
+        //Lecciones
+        Route::post('curso/{cursoId}/lecciones/crear', 'Cursos\CursosLeccionesController@createLeccion')->name('manager.curso.leccion.create')->where('cursoId', '[0-9]+');;
+    });
+
+
+
 
 });
 

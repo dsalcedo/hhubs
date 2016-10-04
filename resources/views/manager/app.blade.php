@@ -80,7 +80,6 @@
     <script>window.jQuery || document.write('<script src="{{asset('js/jquery-1.12.4.min.js')}}"><\/script>')</script>
     <script src="{{asset('js/bootstrap.min.js')}}"></script>
     <script>
-
         $.ajaxSetup({
             headers: {
                 'X-CSRF-TOKEN': $('meta[name="_csrf"]').attr('content')
