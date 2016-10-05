@@ -19,6 +19,7 @@
                     <th>Título</th>
                     <th>Duración</th>
                     <th>Precio</th>
+                    <th>Público</th>
                     <th>Estado</th>
                 </tr>
             </thead>
@@ -28,7 +29,8 @@
                     <td>{{ $suscripcion->titulo }}</td>
                     <td>{{ $suscripcion->duracion }} días</td>
                     <td>${{ $suscripcion->precio }} MXN</td>
-                    <td>{{ ($suscripcion->activo) ? 'Activo' : 'Inactivo' }}</td>
+                    <td class="text-capitalize">{{ $suscripcion->publico }}</td>
+                    <td>{{ ($suscripcion->activo == 'si') ? 'Activo' : 'Inactivo' }}</td>
                     <td width="80">
                         <a href="{{ route('manager.suscripciones.edit', $suscripcion->id) }}" class="btn btn-primary">
                             Editar

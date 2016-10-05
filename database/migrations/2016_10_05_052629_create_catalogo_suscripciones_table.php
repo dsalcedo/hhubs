@@ -18,7 +18,8 @@ class CreateCatalogoSuscripcionesTable extends Migration
             $table->string('titulo');
             $table->integer('precio');
             $table->integer('duracion');
-            $table->boolean('activo')->default(false);
+            $table->enum('activo', ['si', 'no'])->default('no');
+            $table->enum('publico', ['si', 'no'])->default('no');
             $table->timestamps();
         });
     }

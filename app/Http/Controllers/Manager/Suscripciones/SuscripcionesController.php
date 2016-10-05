@@ -43,14 +43,16 @@ class SuscripcionesController extends Controller
             'titulo'   => 'required|max:255',
             'duracion' => 'required|max:255',
             'precio'   => 'required|max:255',
-            'activo'   => 'required'
+            'activo'   => 'required|max:2',
+            'publico'  => 'required|max:2'
         ]);
 
         CatalogoSuscripciones::create([
             'titulo'   => $this->req->get('titulo'),
             'duracion' => $this->req->get('duracion'),
             'precio'   => $this->req->get('precio'),
-            'activo'   => ($this->req->get('activo') == 'si') ? true : false
+            'activo'   => $this->req->get('activo'),
+            'publico'  => $this->req->get('publico')
         ]);
 
         return redirect()->route('manager.suscripciones');
@@ -72,13 +74,15 @@ class SuscripcionesController extends Controller
             'titulo'   => 'required|max:255',
             'duracion' => 'required|max:255',
             'precio'   => 'required|max:255',
-            'activo'   => 'required'
+            'activo'   => 'required|max:2',
+            'publico'  => 'required|max:2'
         ]);
 
         $suscripcion->titulo   = $this->req->get('titulo');
         $suscripcion->duracion = $this->req->get('duracion');
         $suscripcion->precio   = $this->req->get('precio');
-        $suscripcion->activo   = ($this->req->get('activo') == 'si') ? true : false;
+        $suscripcion->activo   = $this->req->get('activo');
+        $suscripcion->publico  = $this->req->get('publico');
         $suscripcion->save();
 
         return redirect()->route('manager.suscripciones');

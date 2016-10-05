@@ -25,6 +25,10 @@
             <label for="titulo">Estado</label>
             {!! Form::select('activo',['si'=>'Suscripción activa','no'=>'Suscripción inactiva'], null, ['class'=>'form-control']) !!}
         </div>
+        <div class="form-group">
+            <label for="titulo">¿Visible para todos?</label>
+            {!! Form::select('publico',['si'=>'Si, visible para todos','no'=>'No, visible para algunos'], null, ['class'=>'form-control']) !!}
+        </div>
         <div class="col-md-12 text-right">
             <input type="submit" class="btn btn-success" value="Guardar">
         </div>

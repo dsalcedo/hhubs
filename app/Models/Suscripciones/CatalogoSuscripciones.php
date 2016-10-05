@@ -11,6 +11,7 @@ class CatalogoSuscripciones extends Model
         'titulo',
         'precio',
         'duracion',
-        'activo'
+        'activo',
+        'publico'
     ];
 }
