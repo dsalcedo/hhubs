@@ -28,6 +28,14 @@ Route::group([
     });
 
 
+    Route::group(['prefix'=>'suscripciones', 'namespace'=>'Suscripciones'], function (){
+        Route::get('/', 'SuscripcionesController@index')->name('manager.suscripciones');
+        Route::get('crear', 'SuscripcionesController@create')->name('manager.suscripciones.crear');
+        Route::post('crear', 'SuscripcionesController@store')->name('manager.suscripciones.crear.store');
+        Route::get('editar/{idSuscripcion}', 'SuscripcionesController@edit')->name('manager.suscripciones.edit');
+        Route::post('editar/{idSuscripcion}', 'SuscripcionesController@update')->name('manager.suscripciones.update');
+    });
+
 
 
 });

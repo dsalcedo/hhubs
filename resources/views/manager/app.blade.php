@@ -52,7 +52,7 @@
                     <li><a href=""><i class="fa fa-users" aria-hidden="true"></i> Cursantes</a></li>
                 </ul>
                 <ul class="nav nav-sidebar">
-                    <li><a href=""><i class="fa fa-credit-card" aria-hidden="true"></i> Suscripciones</a></li>
+                    <li id="link-suscripciones"><a href="{{ route('manager.suscripciones') }}"><i class="fa fa-credit-card" aria-hidden="true"></i> Suscripciones</a></li>
                     <li><a href=""><span class="fa fa-money"></span> Pagos</a></li>
                     <li><a href=""><i class="fa fa-gift" aria-hidden="true"></i> Promociones</a></li>
                     <li><a href="#"><i class="fa fa-envelope" aria-hidden="true"></i> Mailing</a></li>

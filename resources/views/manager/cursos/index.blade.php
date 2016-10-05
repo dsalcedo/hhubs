@@ -16,11 +16,11 @@
             <div class="col-md-12 app-content">
                 <table class="table table-bordered">
                     <thead>
-                    <tr>
-                        <th>Curso</th>
-                        <th>Lecciones</th>
-                        <th>Estado</th>
-                    </tr>
+                        <tr>
+                            <th>Curso</th>
+                            <th>Lecciones</th>
+                            <th>Estado</th>
+                        </tr>
                     </thead>
                     <tbody>
                     @foreach($cursos as $curso)
