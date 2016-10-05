@@ -24,7 +24,8 @@ class CursosLeccionesController extends Controller
         $usuario = $this->req->user();
 
         $this->validate($this->req, [
-            'titulo' => 'required|max:255'
+            'titulo' => 'required|max:255',
+            'descripcion' => 'required'
         ]);
 
         $curso = Cursos::find($curso);
@@ -34,7 +35,8 @@ class CursosLeccionesController extends Controller
         }
 
         $leccion = $curso->lecciones()->create([
-            'titulo' => $this->req->get('titulo')
+            'titulo' => $this->req->get('titulo'),
+            'descripcion' => $this->req->get('descripcion')
         ]);
 
         $leccion->index = $curso->lecciones->count();

@@ -178,6 +178,9 @@
                                         <td class="text-left">{{ $leccion->titulo }}</td>
                                         <td width="80" class="text-left">0</td>
                                         <td width="100" class="text-center">
+                                            <a href="#" class="btn btn-primary btn-papper">Agregar módulo</a>
+                                        </td>
+                                        <td width="100" class="text-center">
                                             <a href="#" class="btn btn-default">Editar</a>
                                         </td>
                                     </tr>
@@ -407,6 +410,7 @@
 
         $(document).on('click', '#guardar-leccion', function (e) {
             var $titulo  = $('input[name=titulo_leccion]'),
+                $textarea= $('textarea[name=descripcion]'),
                 $boton   = $('#guardar-leccion');
 
             if($titulo.val() !=''){
@@ -414,10 +418,11 @@
                 $.ajax({
                     method:'post',
                     url: '{{route('manager.curso.leccion.create', $curso->id)}}',
-                    data: { 'titulo': $titulo.val() }
+                    data: { 'titulo': $titulo.val(), 'descripcion': $textarea.val() }
                 }).done(function (res) {
                     if(res.success){
                         $titulo.val('');
+                        $textarea.val('');
                         $boton.text('Guardar').removeClass('disabled').removeAttr('disabled');
                         var template = '<tr data-posicion="'+res.data.index+'">' +
                                             '<th scope="row" class="text-center sorter"> ' +
@@ -426,7 +431,10 @@
                                             '<td class="text-left index">'+res.data.index+'</td> ' +
                                             '<td class="text-left">'+res.data.titulo+'</td> ' +
                                             '<td width="100" class="text-center"> ' +
-                                                '<a href="#" class="btn btn-default">Editar</a> ' +
+                                                '<a href="#" class="btn btn-default">Agregar módulo</a> ' +
+                                            '</td> ' +
+                                            '<td width="100" class="text-center"> ' +
+                                                '<a href="#" class="btn btn-primary">Editar</a> ' +
                                             '</td> ' +
                                         '</tr>';
 
