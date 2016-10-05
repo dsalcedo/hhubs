@@ -45,7 +45,7 @@ class CursosController extends Controller
             'titulo'     => $this->req->get('titulo'),
             'contenido'  => $this->req->get('contenido'),
             'estado'     => $this->req->get('estado'),
-            'carrera_id' => 1,
+            'carrera_id' => $this->req->get('carrera_id'),
             'tarjeta'    => $this->req->get('tarjeta'),
             'cover'      => $this->req->get('cover'),
         ]);

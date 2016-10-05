@@ -61,6 +61,7 @@
         }
         .panel {
             border : 0px;
+            margin-bottom: 10px!important;
         }
         .panel-default>.panel-heading {
             border:1px solid #ddd;
@@ -269,6 +270,10 @@
                     <div class="form-group">
                         <label for="leccionTitulo">Título</label>
                         {!! Form::text('titulo_leccion', null, ['class'=>'form-control']) !!}
+                    </div>
+                    <div class="form-group">
+                        <label for="leccionDescripcion">Descripción</label>
+                        {!! Form::textarea('descripcion', null, ['class'=>'form-control']) !!}
                     </div>
                 </div>
                 <div class="modal-footer">
