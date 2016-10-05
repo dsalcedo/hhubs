@@ -1,6 +1,6 @@
 @extends('manager.app')
 
-@section('titulo', 'Manager > Suscripciones > Crear')
+@section('titulo', 'Manager > Suscripciones')
 
 @section('body')
 

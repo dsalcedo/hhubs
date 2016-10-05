@@ -1,6 +1,6 @@
 @extends('manager.app')
 
-@section('titulo', 'Manager > Suscripciones')
+@section('titulo', 'Manager > Suscripciones > Editar')
 
 @section('body')
     <div class="col-md-12 app-content">
