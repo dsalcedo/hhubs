@@ -43,7 +43,8 @@ class CursosController extends Controller
             'titulo'     => $this->req->get('titulo'),
             'contenido'  => $this->req->get('contenido'),
             'estado'     => $this->req->get('estado'),
-            'carrera_id' => $this->req->get('carrera_id')
+            'carrera_id' => $this->req->get('carrera_id'),
+            'gratuito'   => (is_null($this->req->get('gratuito'))) ? false : true
         ]);
 
         $curso->save();
