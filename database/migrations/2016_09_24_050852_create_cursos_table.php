@@ -20,8 +20,6 @@ class CreateCursosTable extends Migration
             $table->longText('contenido');
             $table->enum('estado', ['draft', 'publicado'])->default('draft');
             $table->integer('carrera_id')->unsigned();
-            $table->text('tarjeta')->nullable();
-            $table->text('cover')->nullable();
             $table->boolean('gratuito')->default(false);
             $table->timestamps();
 

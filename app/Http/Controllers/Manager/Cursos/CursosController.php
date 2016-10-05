@@ -36,23 +36,19 @@ class CursosController extends Controller
             'titulo'    => 'required|max:255',
             'contenido' => 'required',
             'estado'    => 'required',
-            'carrera_id'=> 'required',
-            'tarjeta'   => 'required',
-            'cover'     => 'required'
+            'carrera_id'=> 'required'
         ]);
 
         $curso = new Cursos([
             'titulo'     => $this->req->get('titulo'),
             'contenido'  => $this->req->get('contenido'),
             'estado'     => $this->req->get('estado'),
-            'carrera_id' => $this->req->get('carrera_id'),
-            'tarjeta'    => $this->req->get('tarjeta'),
-            'cover'      => $this->req->get('cover'),
+            'carrera_id' => $this->req->get('carrera_id')
         ]);
 
         $curso->save();
 
-        return redirect()->route('manager.curso', $curso->slug);
+        return redirect()->route('manager.cursos.editar', $curso->slug);
     }
 
     public function curso($curso)

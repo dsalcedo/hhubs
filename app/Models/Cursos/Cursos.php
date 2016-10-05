@@ -17,8 +17,6 @@ class Cursos extends Model
         'contenido',
         'estado',
         'carrera_id',
-        'tarjeta',
-        'cover',
         'gratuito'
     ];
 
