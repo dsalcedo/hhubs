@@ -15,7 +15,7 @@ class CreateMediaTable extends Migration
     {
         Schema::create('media', function (Blueprint $table) {
             $table->increments('id');
-            $table->enum('tipo', ['tarjeta','cover']);
+            $table->enum('tipo', ['tarjeta','cover', 'normal'])->default('normal');
             $table->text('archivo');
             $table->timestamps();
         });
