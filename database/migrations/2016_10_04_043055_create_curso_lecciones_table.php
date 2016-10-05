@@ -22,7 +22,7 @@ class CreateCursoLeccionesTable extends Migration
             $table->enum('estado', ['draft','publicado'])->default('draft');
             $table->timestamps();
 
-            $table->foreign('curso_id')->references('id')->on('carreras');
+            $table->foreign('curso_id')->references('id')->on('cursos');
         });
     }
 
