@@ -95,6 +95,11 @@
                         <i class="fa fa-th-list" aria-hidden="true"></i> Módulos
                     </a>
                 </li>
+                <li role="presentation">
+                    <a href="#content-instructores" aria-controls="profile" role="tab" data-toggle="tab">
+                        <i class="fa fa-briefcase" aria-hidden="true"></i> Instructores
+                    </a>
+                </li>
             </ul>
 
             <!-- Tab panes -->
@@ -181,7 +186,7 @@
                                             <a href="#" class="btn btn-primary btn-papper">Agregar módulo</a>
                                         </td>
                                         <td width="100" class="text-center">
-                                            <a href="#" class="btn btn-default">Editar</a>
+                                            <a href="{{ route('manager.leccion.editar', $leccion->id) }}" class="btn btn-default">Editar</a>
                                         </td>
                                     </tr>
                                 @endforeach
@@ -209,11 +214,7 @@
                                     </div>
                                     <div id="collapse{{$leccion->id}}" class="panel-collapse collapse {{($loop->first) ? 'in':''}}" role="tabpanel" aria-labelledby="collapse{{$leccion->id}}">
                                         <div class="panel-body">
-                                            <div class="col-md-12 text-right">
-                                                <div class="row">
-                                                    <a href="#" class="btn btn-primary btn-papper">Agregar módulo</a>
-                                                </div>
-                                            </div>
+
                                         </div>
                                         <table class="table table-bordered">
                                             <thead>
@@ -221,7 +222,6 @@
                                                 <th width="50"></th>
                                                 <th width="50">#</th>
                                                 <th>Last Name</th>
-                                                <th>Username</th>
                                             </tr>
                                             </thead>
                                             <tbody>

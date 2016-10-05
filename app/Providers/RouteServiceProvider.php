@@ -31,6 +31,7 @@ class RouteServiceProvider extends ServiceProvider
         Route::model('cursoSlug', 'App\Models\Cursos\Cursos');
         Route::model('carreraSlug', 'App\Models\Carreras\Carreras');
         Route::model('carreraId', 'App\Models\Carreras\Carreras');
+        Route::model('idLeccion', 'App\Models\Cursos\CursosLecciones');
         Route::model('idSuscripcion', 'App\Models\Suscripciones\CatalogoSuscripciones');
 
     }

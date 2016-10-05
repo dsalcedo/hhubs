@@ -15,18 +15,21 @@ Route::group([
     Route::get('carrera/editar/{carreraSlug}', 'Carreras\CarrerasController@editarCarrera')->name('manager.carrera.editar');
     Route::post('carrera/editar/{carreraSlug}', 'Carreras\CarrerasController@updateCarrera')->name('manager.carrera.update');
 
-    Route::group(['prefix'=>'cursos'], function (){
-        Route::get('/', 'Cursos\CursosController@index')->name('manager.cursos');
-        Route::get('curso/{cursoSlug}', 'Cursos\CursosController@curso')->name('manager.curso');
-        Route::get('crear', 'Cursos\CursosController@crearCurso')->name('manager.cursos.crear');
-        Route::post('crear', 'Cursos\CursosController@create')->name('manager.cursos.create');
+    Route::group(['prefix'=>'cursos', 'namespace'=>'Cursos'], function (){
+        Route::get('/', 'CursosController@index')->name('manager.cursos');
+        Route::get('curso/{cursoSlug}', 'CursosController@curso')->name('manager.curso');
+        Route::get('crear', 'CursosController@crearCurso')->name('manager.cursos.crear');
+        Route::post('crear', 'CursosController@create')->name('manager.cursos.create');
 
-        Route::get('editar/{cursoSlug}', 'Cursos\CursosController@updateCurso')->name('manager.cursos.editar');
-        Route::post('curso/editar/{cursoSlug}', 'Cursos\CursosController@updateCurso')->name('manager.cursos.update');
+        Route::get('editar/{cursoSlug}', 'CursosController@updateCurso')->name('manager.cursos.editar');
+        Route::post('curso/editar/{cursoSlug}', 'CursosController@updateCurso')->name('manager.cursos.update');
         //Lecciones
-        Route::post('curso/{cursoId}/lecciones/crear', 'Cursos\CursosLeccionesController@createLeccion')->name('manager.curso.leccion.create')->where('cursoId', '[0-9]+');;
+        Route::post('curso/{cursoId}/lecciones/crear', 'CursosLeccionesController@createLeccion')->name('manager.curso.leccion.create')->where('cursoId', '[0-9]+');;
     });
 
+    Route::group(['prefix'=>'cursos/leccion', 'namespace'=>'Cursos'], function (){
+        Route::get('editar/{idLeccion}', 'CursosLeccionesController@editar')->name('manager.leccion.editar');
+    });
 
     Route::group(['prefix'=>'suscripciones', 'namespace'=>'Suscripciones'], function (){
         Route::get('/', 'SuscripcionesController@index')->name('manager.suscripciones');

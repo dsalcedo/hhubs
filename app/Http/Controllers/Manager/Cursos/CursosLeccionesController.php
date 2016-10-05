@@ -46,6 +46,10 @@ class CursosLeccionesController extends Controller
             'success' => true,
             'data'    => $leccion
         ]);
+    }
 
+    public function editar($leccion)
+    {
+        return view('manager.cursos.leccion.editar');
     }
 }
