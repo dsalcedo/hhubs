@@ -49,6 +49,13 @@ class CursosController extends Controller
 
         $curso->save();
 
+
+        if(!empty($this->req->get('tarjeta_id'))){
+            $curso->tarjeta()->create([
+                'media_id' => $this->req->get('tarjeta_id')
+            ]);
+        }
+
         return redirect()->route('manager.cursos.editar', $curso->slug);
     }
 

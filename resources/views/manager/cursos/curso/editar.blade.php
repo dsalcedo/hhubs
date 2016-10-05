@@ -112,22 +112,19 @@
                                     <label>Descripción</label>
                                     {!! Form::textarea('contenido', null, ['id'=>'summernote']) !!}
                                 </div>
-                                <div class="col-md-12" style="margin-bottom: 30px;">
-                                    <div class="row" style="margin-bottom: 15px;">
-                                        <div class="col-md-6">
-                                            <span class="btn btn-primary open-modal" data-toggle="modal" data-target="#myModal" data-item="tarjeta">Cargar tarjeta</span>
-                                            <div class="preview-thumbnail" id="tarjeta"></div>
-                                            {!! Form::hidden('tarjeta', null) !!}
-                                        </div>
-                                        <div class="col-md-6">
-                                            <span class="btn btn-primary open-modal" data-toggle="modal" data-target="#myModal" data-item="cover">Cargar imagen destacada</span>
-                                            <div class="preview-thumbnail" id="cover"></div>
-                                            {!! Form::hidden('cover', null) !!}
-                                        </div>
-                                    </div>
-                                </div>
                             </div>
                             <div class="col-md-3">
+                                <div class="col-md-12" style="margin-bottom: 15px;">
+                                    <div class="row">
+                                        <span class="btn btn-primary open-modal" data-toggle="modal" data-target="#myModal" data-item="tarjeta">Cargar tarjeta</span>
+                                        <div class="preview-thumbnail" id="tarjeta">
+                                            {!!
+                                            (!is_null($curso->tarjeta)) ? '<img src="'.asset('media/curso/'.$curso->tarjeta->media->archivo).'" class="img-responsive">' : null
+                                            !!}
+                                        </div>
+                                        {!! Form::hidden('tarjeta_id', (!is_null($curso->tarjeta)) ? $curso->tarjeta->media->id : null ) !!}
+                                    </div>
+                                </div>
                                 <div class="form-group">
                                     <label for="titulo">Carrera</label>
                                     {!! Form::select('carrera_id', $carreras, null, ['class'=>'form-control','placeholder'=>'Selecciona carrera']) !!}
@@ -141,6 +138,7 @@
                                         {!! Form::checkbox('gratuito', '1', null) !!} Marcar como gratuito
                                     </label>
                                 </div>
+
                                 <div class="col-md-12">
                                     <div class="row">
                                         <button type="submit" class="btn btn-default">
@@ -291,7 +289,7 @@
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                 </div>
                 <div class="modal-body">
-                    {!! Form::open(['route'=>'media.upload.cursos', 'files' => true, 'class'=>'dropzone', 'id'=>'mediaUpload']) !!}
+                    {!! Form::open(['route'=>'media.upload.cursoTarjeta', 'files' => true, 'class'=>'dropzone', 'id'=>'mediaUpload']) !!}
                     {!! Form::close() !!}
                 </div>
                 <div class="modal-footer">
@@ -368,9 +366,11 @@
                 dictDefaultMessage: "Subir imagen destacada",
                 init: function() {
                     this.on("complete", function(file) {
-                        var url ='{{asset('media/curso')}}/' + JSON.parse(file.xhr.response);
+                        var ruta = JSON.parse(file.xhr.response);
+
+                        var url ='{{asset('media/curso')}}/' + ruta.archivo;
                         $('#'+setTo).empty();
-                        $('input[name='+setTo+']').val(url);
+                        $('input[name=tarjeta_id]').val(ruta.id);
                         $('<img />',{ id: 'image-preview', src: url, class: 'img-responsive' }).appendTo($('#'+setTo));
                         $('#myModal').modal('hide');
 
