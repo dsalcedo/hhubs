@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 use App\Http\Requests;
 use App\Http\Controllers\Controller;
+use App\Models\Multimedia\Media;
 
 class MediaCursosController extends Controller
 {
@@ -29,6 +30,24 @@ class MediaCursosController extends Controller
         if($archivo){
             $path = $this->req->file('archivo')->store('public', 'curso');
         }
+
+        return response()->json($path);
+    }
+
+    public function uploadTarjeta()
+    {
+        $archivo = $this->req->hasFile('archivo');
+        $path    = false;
+
+        if(!$archivo){
+            return response()->json($path);
+        }
+
+        $path = $this->req->file('archivo')->store('tarjeta','curso');
+        $path = Media::create([
+            'tipo'    => 'tarjeta',
+            'archivo' => $path
+        ]);
 
         return response()->json($path);
     }

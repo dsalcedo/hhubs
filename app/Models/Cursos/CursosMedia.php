@@ -12,4 +12,9 @@ class CursosMedia extends Model
         'media_id'
     ];
 
+    public function media()
+    {
+        return $this->hasOne('App\Models\Multimedia\Media', 'id', 'media_id');
+    }
+
 }

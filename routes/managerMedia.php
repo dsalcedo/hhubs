@@ -9,4 +9,5 @@ Route::group([
     Route::post('test/upload', 'MediaBlogController@test')->name('media.upload.test');
     Route::post('blog/upload', 'MediaBlogController@upload')->name('media.upload.blog');
     Route::post('cursos/upload', 'MediaCursosController@upload')->name('media.upload.cursos');
+    Route::post('curso/tarjeta/upload', 'MediaCursosController@uploadTarjeta')->name('media.upload.cursoTarjeta');
 });

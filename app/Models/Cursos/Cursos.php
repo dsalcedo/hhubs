@@ -53,4 +53,9 @@ class Cursos extends Model
     {
         return $this->hasMany('App\Models\Cursos\CursosLecciones', 'curso_id', 'id');
     }
+
+    public function tarjeta()
+    {
+        return $this->hasOne('App\Models\Cursos\CursosMedia', 'curso_id', 'id')->with('media');
+    }
 }
